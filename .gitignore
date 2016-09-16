@@ -8,4 +8,6 @@
 *.toc
 *.bbl
 *.blg
-
+*.*.swp
+*.*.swp
+*.*.*.swp
