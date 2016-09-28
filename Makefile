@@ -1,7 +1,6 @@
 MAIN=thesis_klpanagi
 
 all:$(MAIN).tex
-	#mkdir -p out
 	xelatex -interaction=nonstopmode $(MAIN).tex
 
 bib:$(MAIN).tex
