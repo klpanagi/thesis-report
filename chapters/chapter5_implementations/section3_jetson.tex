@@ -56,7 +56,8 @@
   \item{I2C ports: Διαθέτει τρείς θύρες I2C για σύνδεση αισθητήρων/συσκευών που οδηγούνται με το συγκεκριμένο προτόκολο}
   \item{GPIO: Προσφέρει δύο θυρες επέκτασης (expansion ports), με 50 και 75 ακροδέκτες αντίστοιχα. Χρησιμο κυρίως για, επικοινωνία συσκευών με SPI, οδήγηση σερβο-κινητήρων, διακλάδωση τροφοδοσίας σε τρίτες συσκευές, κτλ.}
 \end{itemize}
+
 Όσον αφορά την υλοποίηση και ανάπτυξη Νευρωνικών Δικτύων σε ενσωματωμένα συστήματα, το Jetson TK1 θεωρείτε ιδανικό
 αφού υποστηρίζει CUDA και cuDNN. H cuDNN (CUDA Deep Neural Network library) είναι GPU-accelerated βιβλιοθήκη για Νευρωνικά Δίκτυα,
 η οποία αναπτύχθηκε από την NVIDIA και προσφέρει υψηλού επιπέδου υλοποιήσεις για ρουτίνες όπως συνέλιξη, κανονικοποίηση δεδομένων, pooling, επίπεδα ενεργοποίησης, κτλ.
-Η βιβλιοθήκη cuDNN χρησιμοποιέιτε και ενσωματώνετε σε όλα τα frameworks βαθιας εκμάθησης, όπως \emph{Caffe, Tensorflow, Theano, Torch και CNTK}.
+Η βιβλιοθήκη cuDNN χρησιμοποιέιτε και ενσωματώνετε σε όλα τα frameworks βαθιας εκμάθησης, όπως Caffe \cite{jia2014caffe}, Tensorflow \cite{DBLP:journals/corr/AbadiBCCDDDGIIK16}, Theano \cite{2016arXiv160502688full}\cite{bergstra+al:2010-scipy}\cite{Bastien-Theano-2012}, Torch \cite{collobert2002torch}\cite{collobert2011torch7}\cite{collobert2012implementing}, CNTΚ και Keras.
