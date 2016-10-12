@@ -1,15 +1,26 @@
 #!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
 
 import random
 from matplotlib import pyplot as plt
+from matplotlib import rcParams
+import matplotlib
 import numpy as np
+
+# Use TeX
+rcParams['text.usetex'] = True
+rcParams['text.latex.unicode'] = True
+
 
 """
 Parametric equation of the circle:
 - x = a + r * cost
 - y = a + r * sint
 """
-r = 10
+r1 = 10
+r2 = 1
 a = 10
 b = 10
 
@@ -17,15 +28,15 @@ x = []
 y = []
 
 for i in range(360):
-    x.append( r * np.cos(i) + random.random() + a)
-    y.append( r * np.sin(i) + random.random() + b)
+    x.append(r1 * np.cos(i) + random.random() + a)
+    y.append(r1 * np.sin(i) + random.random() + b)
 
 x2 = []
 y2 = []
 
 for i in range(100):
-    x2.append( 1 * np.cos(i) + random.randrange(-1, 1) + a)
-    y2.append( 1 * np.sin(i) + random.randrange(-1, 1) + b)
+    x2.append(r2 * np.cos(i) + random.randrange(-1, 1) + a)
+    y2.append(r2 * np.sin(i) + random.randrange(-1, 1) + b)
 
 plt.figure(1)
 plt.subplot(121)
@@ -34,9 +45,9 @@ cur_axes.axes.get_xaxis().set_ticks([])
 cur_axes.axes.get_yaxis().set_ticks([])
 plt.plot(x, y, ' bo')
 plt.plot(x2, y2, 'yo')
-plt.xlabel('x', fontsize=16)
-plt.ylabel('y', fontsize=16)
-plt.title('Catresian coordinate system')
+plt.xlabel('x', fontsize=22)
+plt.ylabel('y', fontsize=22)
+plt.title(u'Cartesian Coordinate System')
 
 plt.subplot(122)
 cur_axes = plt.gca()
@@ -61,9 +72,11 @@ for i in range(10):
 
 plt.plot(x, y, 'yo')
 plt.plot(x2, y2, 'bo')
-plt.xlabel('r', fontsize=16)
-plt.ylabel('theta', fontsize=16)
-plt.title('Polar coordinate system')
+plt.plot([(r1 + 2) for i in range(100)], [i/5 for i in range(100)],
+         color='r', linestyle='-', linewidth=4)
+plt.xlabel('r', fontsize=22)
+plt.ylabel(r'$\theta$', fontsize=22)
+plt.title(u'Polar Coordinate System')
 
 plt.savefig('plot1.png')
 
