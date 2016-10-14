@@ -35,8 +35,7 @@
 να αναγνωρίζει και σκύλους.
 
 Πολλά προβλήματα, ενώ μέχρι και πριν μία μερικά χρόνια λύνονταν με
-"χειρόγραφη", προγραμματισμένη από τον άνθρωπο, γνώση
-(hand-written feature extraction), σήμερα χρησιμοποιούνται
+"χειρόγραφη", προγραμματισμένη από τον άνθρωπο γνώση, σήμερα χρησιμοποιούνται
 αλγόριθμοι ML για την επίλυσή τους. Πιο κάτω παρατίθενται μερικά
 παραδείγματα:
 \begin{itemize}
@@ -54,6 +53,116 @@
   \end{itemize}
   \item{Μηχανές αναζήτησης}
 \end{itemize}
+
+Τα προβλήματα Μηχανικής Μάθησης χωρίζονται σε τρεις μεγάλες κατηγορίες:
+\begin{itemize}
+  \item{Υπό επίβλεψη Μάθηση - Supervised Learning:
+      Στο υπολογιστικό σύστημα δίνονται παραδείγματα εισόδου και επιθυμητής εξόδου,
+      δηλαδή στα δεδομένα έχουν προηγουμένως ανατεθεί ετικέτες(labels),
+      και στόχος είναι να μάθει ένα γενικό κανόνα αντιστοίχισης της εισόδου στην επιθυμητή έξοδο.
+      Η αναγνώριση αντικειμένων σε εικόνες είναι ένα πρόβλημα που ανήκει σε αυτή την κατηγορία.
+    }
+  \item{Χωρίς επίβλεψη Μάθηση - Unsupervised Learning:
+      Τα δεδομένα δεν έχουν ετικέτες (labels), αφήνοντας έτσι τον αλγόριθμο ML να βρεί
+      από μόνος του δομές στα δεδομένα εισόδου.
+    }
+  \item{Εκμάθηση δια ανταμοιβής - Reinforcement Learning:
+      Ο πράκτορας αλληλεπιδρά με ένα δυναμικό περιβάλλον στο οποίο πρέπει να
+      εκτελέσει ένα συγκεκριμένο στόχο, χωρίς την ύπαρξη ενός "δασκάλου" που να
+      ορίζει ρητά αν έχει φθάσει κοντά στον στόχο. Ένα παράδειγμα εφαρμογής
+      είναι η αυτόματη πλοήγηση ενός οχήματος.
+    }
+\end{itemize}
+Περεταίρω, οι Supervised Learning αλγόριθμοι χωρίζονται σε 2 κατηγορίες, αναλόγα
+με την επιθυμητή μορφή της εξόδου του αλγόριθμου ML:
+\begin{itemize}
+  \item{Ταξινόμησης - Classification: Όταν η έξοδος παίρνει διακριτές τιμές (discrete).}
+  \item{Regression: Όταν η έξοδος παίρνει συνεχείς τιμές.}
+\end{itemize}
+
+Γενικότερα, οι αλγόριθμοι ML ομαδοποιούνται και ανάλογα με την ομοιότητα τους
+σε σχέση με με την λειτουργία που εκτελούνε. Πιο κάτω αναφέρονται οι πιο δημοφιλείς
+αλγόριθμοι ML, ομαδοποιημένοι με βάση την λειτουργία τους:
+\begin{itemize}
+  \item{Regression: Aσχολείται με τη μοντελοποίηση της σχέσης μεταξύ των μεταβλητών που επαναληπτικά ανανεώνονται
+    χρησιμοποιώντας ένα μέτρο σφάλματος για τις προβλέψεις που γίνονται από το μοντέλο}
+  \begin{itemize}
+    \item{Ordinary Least Squares Regression (OLSR)}
+    \item{Linear Regression}
+    \item{Logistic Regression}
+    \item{Stepwise Regression}
+    \item{Multivariate Adaptive Regression Splines (MARS)}
+    \item{Locally Estimated Scatterplot Smoothing (LOESS)}
+  \end{itemize}
+  \item{Instance-based: Αυτές οι μεθόδοι δημιουργούν μία βάση δεδομένων με
+    παραδείγματα δεδομένων και συγκρίνουν τα νέα δεδομένα με αυτά που έχουν
+    καταχωρηθεί στην βάση δεδομένων χρησιμοποιώντας ένα μέτρο ομοιότητας,
+    για την εύρεση της καλύτερης αντιστοιχίας, πιθανοτικά}
+  \begin{itemize}
+    \item{k-Nearest Neighbour (kNN)}
+    \item{Learning Vector Quantization (LVQ)}
+    \item{Self-Organizing Map (SOM)}
+    \item{Locally Weighted Learning (LWL)}
+  \end{itemize}
+  \item{Regularization: Χρησιμοποιούνται σαν επεκτάσεις άλλων μεθόδων και
+    "τιμωρούν" μοντέλα, βασισμένμενα στην πολυπολοκότητα τους, ευνοώντας έτσι
+    απλούστερα μοντέλα τα οποίο είναι παράλληλα καλύτερα στην γενίκευση της
+    επίλυσης του εκάστοτε προβλήματος}
+  \begin{itemize}
+    \item{Ridge Regression}
+    \item{Least Absolute Shrinkage and Selection Operator (LASSO)}
+    \item{Least-Angle Regression (LARS)}
+    \item{Elastic Net}
+  \end{itemize}
+  \item{Decision Tree: Χρησιμοποιούνται για την κατασκευή μοντέλων
+    λήψης αποφάσεων, τα οποία χρησιμοποιούν τις πραγματικές τιμές των
+    χαρακτηριστικών των δεδομένων.}
+  \begin{itemize}
+    \item{Classification and Regression Tree (CART)}
+    \item{Conditional Decision Trees}
+    \item{M5}
+  \end{itemize}
+  \item{Bayesian: Εφαρμόζουν το θεώρημα του Bayes για την επίλυση τόσο προβλημάτων regression, αλλά και classification}
+  \begin{itemize}
+    \item{Naive Bayes}
+    \item{Gaussian Naive Bayes}
+    \item{Bayesian Network (BN)}
+    \item{Bayesian Belief Network (BBN)}
+  \end{itemize}
+  \item{Clustering: Περιγράφουν τις κλάσεις του προβλήματος}
+  \begin{itemize}
+    \item{k-Means}
+    \item{k-Medians}
+    \item{Expectation Maximisation (EM)}
+    \item{Hierarchical Clustering}
+  \end{itemize}
+  \item{Artificial Neural Network (ANN): Μοντέλα εμπνευσμένα από τη δομή ή/και την λειτουργία των βιολογικών νευρωνικών δικτύων.
+    Χρησιμοποιούνται στην επίλυση προβλημάτων classification ή/και regression}
+  \begin{itemize}
+    \item{Perceptron}
+    \item{Back-Propagation}
+    \item{Radial Basis Function Network (RBFN)}
+  \end{itemize}
+  \item{Deep Learning (DL): Οι αλγόριθμοι DL είναι η σύγχρονη επέκταση των ANN, τα οποία
+    εκμεταλλεύονται την αφθονία υπολογιστικής ισχύς των σύγχρονων υπολογιστικών συστημάτων.}
+  \begin{itemize}
+    \item{Deep Boltzmann Machine (DBM)}
+    \item{Deep Belief Networks (DBN)}
+    \item{Convolutional Neural Network (CNN)}
+    \item{Stacked Auto-Encoders}
+    \item{Recurrent Neural Networks (RNN)}
+  \end{itemize}
+  \item{Dimensionality Reduction: Χρησιμοποιούνται για την αφαίρεση σχεδόν ασήμαντης πληροφορίας
+    από τα δεδομέναι. Πολλές από τις μεθόδους αυτές χρησιμοποιούνται σαν επεκτάσεις σε μοντέλα επίλυσης
+    προβλημάτων regression και classification}
+  \begin{itemize}
+    \item{Principal Component Analysis (PCA)}
+    \item{Discriminant Analysis: Linear (LDA), Mixture (MDA), Quadratic (QDA), Flexible (FDA)}
+    \item{Principal Component Regression (PCR)}
+    \item{Multidimensional Scaling (MDS)}
+  \end{itemize}
+\end{itemize}
+
 
 Η μορφή της αναπαράστασης των δεδομένων αποτελεί σημαντικό παράγοντα στην
 απόδοση των αλγορίθμων ML. Μία αναπαράσταση αποτελείται από χαραχτηριστικά (features).
@@ -80,7 +189,7 @@
 τότε η επίλυση του προβλήματος είναι αδύνατη αφού δεν υπαρχει καμία ευθεία
 που να διαχωρίζει τις δύο κλάσεις. Ωστόσο, αν αναπαραστήσουμε τα δεδομένα
 στο Πολικό σύστημα συντεταγμένων (δεξί διάγραμμα), τότε το πρόβλημα λύνεται
-εύκολα, χαράζοντας μία κάθετη ευθεία, με $r \in [r1, r2], 0 \leq \theta \leq 2\pi$.
+εύκολα, χαράζοντας μία κάθετη ευθεία, με $r  = a, a \in [r1, r2]$.
 
 Σε πληθώρα προβλημάτων τεχνητής νοημοσύνης, η επιλογή κατάλληλων χαρακτηριστικών
 είναι δύσκολο και χρονοβόρο έργο. Έστω για παράδειγμα ότι θέλουμε να αναγνωρίσουμε
