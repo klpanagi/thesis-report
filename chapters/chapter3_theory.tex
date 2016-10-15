@@ -25,7 +25,7 @@
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{./images/chapter3/AI_1.jpg}
-  \caption[Τεχνητή Νοημοσύνη]{Τεχνητή Νοημοσύνη}
+  % \caption[Τεχνητή Νοημοσύνη]{Τεχνητή Νοημοσύνη}
   \label{fig:AI_1}
 \end{figure}
 Η χρησιμοποίηση αλγορίθμων ML, επιτρέπουν σε συστήματα AI
@@ -82,11 +82,17 @@
 
 Γενικότερα, οι αλγόριθμοι ML ομαδοποιούνται και ανάλογα με την ομοιότητα τους
 σε σχέση με με την λειτουργία που εκτελούνε. Πιο κάτω αναφέρονται οι πιο δημοφιλείς
-αλγόριθμοι ML, ομαδοποιημένοι με βάση την λειτουργία τους:
-\begin{itemize}
-  \item{Regression: Aσχολείται με τη μοντελοποίηση της σχέσης μεταξύ των μεταβλητών που επαναληπτικά ανανεώνονται
-    χρησιμοποιώντας ένα μέτρο σφάλματος για τις προβλέψεις που γίνονται από το μοντέλο}
+αλγόριθμοι ML, ομαδοποιημένοι με βάση την λειτουργία τους
+\\
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Regression}
+
+  Aσχολείται με τη μοντελοποίηση της σχέσης μεταξύ των μεταβλητών που επαναληπτικά ανανεώνονται
+  χρησιμοποιώντας ένα μέτρο σφάλματος για τις προβλέψεις που γίνονται από το μοντέλο
   \begin{itemize}
+    \setlength\itemsep{0em}
     \item{Ordinary Least Squares Regression (OLSR)}
     \item{Linear Regression}
     \item{Logistic Regression}
@@ -94,75 +100,187 @@
     \item{Multivariate Adaptive Regression Splines (MARS)}
     \item{Locally Estimated Scatterplot Smoothing (LOESS)}
   \end{itemize}
-  \item{Instance-based: Αυτές οι μεθόδοι δημιουργούν μία βάση δεδομένων με
-    παραδείγματα δεδομένων και συγκρίνουν τα νέα δεδομένα με αυτά που έχουν
-    καταχωρηθεί στην βάση δεδομένων χρησιμοποιώντας ένα μέτρο ομοιότητας,
-    για την εύρεση της καλύτερης αντιστοιχίας, πιθανοτικά}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/regression_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+\textbf{\large Instance-based}
+
+  Αυτές οι μεθόδοι δημιουργούν μία βάση δεδομένων με
+  παραδείγματα δεδομένων και συγκρίνουν τα νέα δεδομένα με αυτά που έχουν
+  καταχωρηθεί στην βάση δεδομένων χρησιμοποιώντας ένα μέτρο ομοιότητας,
+  για την εύρεση της καλύτερης αντιστοιχίας, πιθανοτικά.
   \begin{itemize}
+    \setlength\itemsep{0em}
     \item{k-Nearest Neighbour (kNN)}
     \item{Learning Vector Quantization (LVQ)}
     \item{Self-Organizing Map (SOM)}
     \item{Locally Weighted Learning (LWL)}
   \end{itemize}
-  \item{Regularization: Χρησιμοποιούνται σαν επεκτάσεις άλλων μεθόδων και
-    "τιμωρούν" μοντέλα, βασισμένμενα στην πολυπολοκότητα τους, ευνοώντας έτσι
-    απλούστερα μοντέλα τα οποίο είναι παράλληλα καλύτερα στην γενίκευση της
-    επίλυσης του εκάστοτε προβλήματος}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/instance_based_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+
+\begin{minipage}{0.5\textwidth}  %% Minipage
+
+  \textbf{\large Regularization}
+
+  Χρησιμοποιούνται σαν επεκτάσεις άλλων μεθόδων και
+  "τιμωρούν" μοντέλα, βασισμένμενα στην πολυπολοκότητα τους, ευνοώντας έτσι
+  απλούστερα μοντέλα τα οποίο είναι παράλληλα καλύτερα στην γενίκευση της
+  επίλυσης του εκάστοτε προβλήματος.
   \begin{itemize}
+    \setlength\itemsep{0em}
     \item{Ridge Regression}
     \item{Least Absolute Shrinkage and Selection Operator (LASSO)}
     \item{Least-Angle Regression (LARS)}
     \item{Elastic Net}
   \end{itemize}
-  \item{Decision Tree: Χρησιμοποιούνται για την κατασκευή μοντέλων
-    λήψης αποφάσεων, τα οποία χρησιμοποιούν τις πραγματικές τιμές των
-    χαρακτηριστικών των δεδομένων.}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/regularization_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Dimensionality Reduction}
+
+  Χρησιμοποιούνται για την αφαίρεση σχεδόν ασήμαντης πληροφορίας
+  από τα δεδομέναι. Πολλές από τις μεθόδους αυτές χρησιμοποιούνται σαν επεκτάσεις σε μοντέλα επίλυσης
+  προβλημάτων regression και classification
+
   \begin{itemize}
-    \item{Classification and Regression Tree (CART)}
-    \item{Conditional Decision Trees}
-    \item{M5}
-  \end{itemize}
-  \item{Bayesian: Εφαρμόζουν το θεώρημα του Bayes για την επίλυση τόσο προβλημάτων regression, αλλά και classification}
-  \begin{itemize}
-    \item{Naive Bayes}
-    \item{Gaussian Naive Bayes}
-    \item{Bayesian Network (BN)}
-    \item{Bayesian Belief Network (BBN)}
-  \end{itemize}
-  \item{Clustering: Περιγράφουν τις κλάσεις του προβλήματος}
-  \begin{itemize}
-    \item{k-Means}
-    \item{k-Medians}
-    \item{Expectation Maximisation (EM)}
-    \item{Hierarchical Clustering}
-  \end{itemize}
-  \item{Artificial Neural Network (ANN): Μοντέλα εμπνευσμένα από τη δομή ή/και την λειτουργία των βιολογικών νευρωνικών δικτύων.
-    Χρησιμοποιούνται στην επίλυση προβλημάτων classification ή/και regression}
-  \begin{itemize}
-    \item{Perceptron}
-    \item{Back-Propagation}
-    \item{Radial Basis Function Network (RBFN)}
-  \end{itemize}
-  \item{Deep Learning (DL): Οι αλγόριθμοι DL είναι η σύγχρονη επέκταση των ANN, τα οποία
-    εκμεταλλεύονται την αφθονία υπολογιστικής ισχύς των σύγχρονων υπολογιστικών συστημάτων.}
-  \begin{itemize}
-    \item{Deep Boltzmann Machine (DBM)}
-    \item{Deep Belief Networks (DBN)}
-    \item{Convolutional Neural Network (CNN)}
-    \item{Stacked Auto-Encoders}
-    \item{Recurrent Neural Networks (RNN)}
-  \end{itemize}
-  \item{Dimensionality Reduction: Χρησιμοποιούνται για την αφαίρεση σχεδόν ασήμαντης πληροφορίας
-    από τα δεδομέναι. Πολλές από τις μεθόδους αυτές χρησιμοποιούνται σαν επεκτάσεις σε μοντέλα επίλυσης
-    προβλημάτων regression και classification}
-  \begin{itemize}
+    \setlength\itemsep{0em}
     \item{Principal Component Analysis (PCA)}
     \item{Discriminant Analysis: Linear (LDA), Mixture (MDA), Quadratic (QDA), Flexible (FDA)}
     \item{Principal Component Regression (PCR)}
     \item{Multidimensional Scaling (MDS)}
   \end{itemize}
-\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/dimensional_reduction_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
 
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Decision Trees}
+
+  Χρησιμοποιούνται για την κατασκευή μοντέλων
+  λήψης αποφάσεων, τα οποία χρησιμοποιούν τις πραγματικές τιμές των
+  χαρακτηριστικών των δεδομένων.
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Classification and Regression Tree (CART)}
+    \item{Conditional Decision Trees}
+    \item{M5}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/decision_tree_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Bayesian}
+
+  Εφαρμόζουν το θεώρημα του Bayes για την επίλυση τόσο προβλημάτων regression, αλλά και classification
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Naive Bayes}
+    \item{Gaussian Naive Bayes}
+    \item{Bayesian Network (BN)}
+    \item{Bayesian Belief Network (BBN)}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/bayesian_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Clustering}
+
+  Περιγράφουν τις κλάσεις του προβλήματος
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{k-Means}
+    \item{k-Medians}
+    \item{Expectation Maximisation (EM)}
+    \item{Hierarchical Clustering}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/bayesian_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Artificial Neural Networks (ANN)}
+
+  Μοντέλα εμπνευσμένα από τη δομή ή/και την λειτουργία των βιολογικών νευρωνικών δικτύων.
+  Χρησιμοποιούνται στην επίλυση προβλημάτων classification ή/και regression
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Perceptron}
+    \item{Back-Propagation}
+    \item{Radial Basis Function Network (RBFN)}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/artificial_neural_network_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Deep Learning (DL)}
+
+  Οι αλγόριθμοι DL είναι η σύγχρονη επέκταση των ANN, τα οποία
+  εκμεταλλεύονται την αφθονία υπολογιστικής ισχύς των σύγχρονων υπολογιστικών συστημάτων.
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Deep Boltzmann Machine (DBM)}
+    \item{Deep Belief Networks (DBN)}
+    \item{Convolutional Neural Network (CNN)}
+    \item{Stacked Auto-Encoders}
+    \item{Recurrent Neural Networks (RNN)}
+  \end{itemize}%
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/deep_learning_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+\\\\
 
 Η μορφή της αναπαράστασης των δεδομένων αποτελεί σημαντικό παράγοντα στην
 απόδοση των αλγορίθμων ML. Μία αναπαράσταση αποτελείται από χαραχτηριστικά (features).
@@ -174,33 +292,33 @@
 σε ένα πιο υψηλό και αφαιρετικό επίπεδο αντίληψης για τους υπολογιστές, η οποία
 στην συνέχεια δίνεται σαν είσοδος σε έναν απλό ML αλγόριθμο, ο οποίος έχει
 μάθει να αντιστοιχεί την αναπαράσταση των δεδομένων στην επιθυμητή έξοδο.
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.7\textwidth]{./images/chapter3/representation_dependency.png}
-  \caption[Παράδειγμα διαφορετικών αναπαραστάσεων των δεδομένων]{Παράδειγμα διαφορετικών αναπαραστάσεων των δεδομένων}
-  \label{fig:representation_dependency}
-\end{figure}
+    \begin{figure}[!h]
+      \centering
+      \includegraphics[width=0.7\textwidth]{./images/chapter3/representation_dependency.png}
+      \caption[Παράδειγμα διαφορετικών αναπαραστάσεων των δεδομένων]{Παράδειγμα διαφορετικών αναπαραστάσεων των δεδομένων}
+      \label{fig:representation_dependency}
+    \end{figure}
 
-Ένα απλό και κατανοητό παράδειγμα, το οποίο δείχνει την εξάρτηση της επίδοσης ενός
-αλγορίθμου ML, από την μορφή της αναπαράστασης που του δίνεται, φαίνεται στο
-\autoref{fig:representation_dependency}. Έστω ότι θέλουμε να
-διαχωρίσουμε τα δεδομένα μας σε δύο κλάσεις, χαράζοντας μία ευθεία
-μεταξύ τους. Αν αναπαραστήσουμε τα δεδομένα στο Καρτεσιανό σύστημα συντεταγμένων (αριστερό διάγραμμα),
-τότε η επίλυση του προβλήματος είναι αδύνατη αφού δεν υπαρχει καμία ευθεία
-που να διαχωρίζει τις δύο κλάσεις. Ωστόσο, αν αναπαραστήσουμε τα δεδομένα
-στο Πολικό σύστημα συντεταγμένων (δεξί διάγραμμα), τότε το πρόβλημα λύνεται
-εύκολα, χαράζοντας μία κάθετη ευθεία, με $r  = a, a \in [r1, r2]$.
+    Ένα απλό και κατανοητό παράδειγμα, το οποίο δείχνει την εξάρτηση της επίδοσης ενός
+    αλγορίθμου ML, από την μορφή της αναπαράστασης που του δίνεται, φαίνεται στο
+    \autoref{fig:representation_dependency}. Έστω ότι θέλουμε να
+    διαχωρίσουμε τα δεδομένα μας σε δύο κλάσεις, χαράζοντας μία ευθεία
+    μεταξύ τους. Αν αναπαραστήσουμε τα δεδομένα στο Καρτεσιανό σύστημα συντεταγμένων (αριστερό διάγραμμα),
+    τότε η επίλυση του προβλήματος είναι αδύνατη αφού δεν υπαρχει καμία ευθεία
+    που να διαχωρίζει τις δύο κλάσεις. Ωστόσο, αν αναπαραστήσουμε τα δεδομένα
+    στο Πολικό σύστημα συντεταγμένων (δεξί διάγραμμα), τότε το πρόβλημα λύνεται
+    εύκολα, χαράζοντας μία κάθετη ευθεία, με $r  = a, a \in [r1, r2]$.
 
-Σε πληθώρα προβλημάτων τεχνητής νοημοσύνης, η επιλογή κατάλληλων χαρακτηριστικών
-είναι δύσκολο και χρονοβόρο έργο. Έστω για παράδειγμα ότι θέλουμε να αναγνωρίσουμε
-πρόσωπα σε εικόνες. Ένα χαρακτηριστικό θα μπορούσε να είναι τα μάτια. Δυστυχώς όμως,
-η αναγνώριση ματιών είναι και αυτή ένα δύσκολο πρόβλημα, αφού δεν μπορεί να
-περιγραφεί πάντα επακριβώς έχοντας σαν δεδομένα τις τιμές των pixel της εικόνας.
-Η γεωμετρική, για παράδειγμα, μορφή των ματιών σε μία εικόνα λήψης εξαρτάται από την
-γωνία λήψης, τον φωτισμό, κτλ.
+    Σε πληθώρα προβλημάτων τεχνητής νοημοσύνης, η επιλογή κατάλληλων χαρακτηριστικών
+    είναι δύσκολο και χρονοβόρο έργο. Έστω για παράδειγμα ότι θέλουμε να αναγνωρίσουμε
+    πρόσωπα σε εικόνες. Ένα χαρακτηριστικό θα μπορούσε να είναι τα μάτια. Δυστυχώς όμως,
+    η αναγνώριση ματιών είναι και αυτή ένα δύσκολο πρόβλημα, αφού δεν μπορεί να
+    περιγραφεί πάντα επακριβώς έχοντας σαν δεδομένα τις τιμές των pixel της εικόνας.
+    Η γεωμετρική, για παράδειγμα, μορφή των ματιών σε μία εικόνα λήψης εξαρτάται από την
+    γωνία λήψης, τον φωτισμό, κτλ.
 
 
-%\input{./chapters/chapter3_theory/section0_ml.tex}
-\input{./chapters/chapter3_theory/section1_dnn.tex}
-\input{./chapters/chapter3_theory/section2_cnn.tex}
+    %\input{./chapters/chapter3_theory/section0_ml.tex}
+    \input{./chapters/chapter3_theory/section1_dnn.tex}
+    \input{./chapters/chapter3_theory/section2_cnn.tex}
 \input{./chapters/chapter3_theory/section3_objectrecognition.tex}
