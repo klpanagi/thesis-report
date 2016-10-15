@@ -1,0 +1,317 @@
+\section{Εισαγωγή στην Επιστήμη της Μηχανικής Μάθησης}
+\label{sec:theory_ml}
+
+Η εισαγωγή του κλάδου του ML στην επιστήμη των υπολογιστών,
+επέτρεψε στους υπολογιστές να μπορούν να αντιμετωπίσουν προβλήματα που εμπλέκουν
+την αντίληψη για τον πραγματικό κόσμο και να πέρνουν υποκειμενικές αποφάσεις.
+
+Η χρησιμοποίηση αλγορίθμων ML, επιτρέπουν σε συστήματα AI
+να προσαρμόζονται εύκολα σε καινούργια έργα, με ελάχιστη επέμβαση από τον άνθρωπο.
+Για παράδειγμα, ένα Νευρωνικό Δίκτυο που έχει εκπεδευτεί να αναγνωρίζει γάτους σε εικόνες,
+δεν απαιτεί να σχεδιαστεί και να εκπαιδευτεί από το μηδέν για να έχει την ικανότητα
+να αναγνωρίζει και σκύλους.
+
+Πολλά προβλήματα, ενώ μέχρι και πριν μία μερικά χρόνια λύνονταν με
+"χειρόγραφη", προγραμματισμένη από τον άνθρωπο γνώση, σήμερα χρησιμοποιούνται
+αλγόριθμοι ML για την επίλυσή τους. Πιο κάτω παρατίθενται μερικά
+παραδείγματα:
+\begin{itemize}
+  \item{Αναγνώριση ομιλίας - Speech Recognition}
+  \item{Μηχανική όραση - Computer Vision}
+  \begin{itemize}
+    \item{Αναγνώριση αντικειμένων σε εικόνες - Object Recognition}
+    \item{Αναγνώριση και εντοπισμός της θέσης αντικειμένων σε εικόνες - Object Detection}
+  \end{itemize}
+  \item{Αναγνώριση ηλεκτρονικών επιθέσεων στο διαδίκτυο - Cyberattack detection}
+  \item{Επεξεργασία φυσικής γλώσσας - Natural Language Processing}
+  \begin{itemize}
+    \item{Κατανόηση της φυσικής γλώσσας του ανθρώπου - Natural Language Understanding}
+    \item{Μοντελοποίηση και χρησιμοποίηση της φυσικής γλώσσας του ανθρώπου από μηχανές - Natural Language Generation}
+  \end{itemize}
+  \item{Μηχανές αναζήτησης}
+\end{itemize}
+
+Τα προβλήματα Μηχανικής Μάθησης χωρίζονται σε τρεις μεγάλες κατηγορίες:
+\begin{itemize}
+  \item{Υπό επίβλεψη Μάθηση - Supervised Learning:
+      Στο υπολογιστικό σύστημα δίνονται παραδείγματα εισόδου και επιθυμητής εξόδου,
+      δηλαδή στα δεδομένα έχουν προηγουμένως ανατεθεί ετικέτες(labels),
+      και στόχος είναι να μάθει ένα γενικό κανόνα αντιστοίχισης της εισόδου στην επιθυμητή έξοδο.
+      Η αναγνώριση αντικειμένων σε εικόνες είναι ένα πρόβλημα που ανήκει σε αυτή την κατηγορία.
+    }
+  \item{Χωρίς επίβλεψη Μάθηση - Unsupervised Learning:
+      Τα δεδομένα δεν έχουν ετικέτες (labels), αφήνοντας έτσι τον αλγόριθμο ML να βρεί
+      από μόνος του δομές στα δεδομένα εισόδου.
+    }
+  \item{Εκμάθηση δια ανταμοιβής - Reinforcement Learning:
+      Ο πράκτορας αλληλεπιδρά με ένα δυναμικό περιβάλλον στο οποίο πρέπει να
+      εκτελέσει ένα συγκεκριμένο στόχο, χωρίς την ύπαρξη ενός "δασκάλου" που να
+      ορίζει ρητά αν έχει φθάσει κοντά στον στόχο. Ένα παράδειγμα εφαρμογής
+      είναι η αυτόματη πλοήγηση ενός οχήματος.
+    }
+\end{itemize}
+Περεταίρω, οι Supervised Learning αλγόριθμοι χωρίζονται σε 2 κατηγορίες, αναλόγα
+με την επιθυμητή μορφή της εξόδου του αλγόριθμου ML:
+\begin{itemize}
+  \item{Ταξινόμησης - Classification: Όταν η έξοδος παίρνει διακριτές τιμές (discrete).}
+  \item{Regression: Όταν η έξοδος παίρνει συνεχείς τιμές.}
+\end{itemize}
+
+Γενικότερα, οι αλγόριθμοι ML ομαδοποιούνται και ανάλογα με την ομοιότητα τους
+σε σχέση με με την λειτουργία που εκτελούνε. Πιο κάτω αναφέρονται οι πιο δημοφιλείς
+αλγόριθμοι ML, ομαδοποιημένοι με βάση την λειτουργία τους
+\\
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Regression}
+
+  Aσχολείται με τη μοντελοποίηση της σχέσης μεταξύ των μεταβλητών που επαναληπτικά ανανεώνονται
+  χρησιμοποιώντας ένα μέτρο σφάλματος για τις προβλέψεις που γίνονται από το μοντέλο
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Ordinary Least Squares Regression (OLSR)}
+    \item{Linear Regression}
+    \item{Logistic Regression}
+    \item{Stepwise Regression}
+    \item{Multivariate Adaptive Regression Splines (MARS)}
+    \item{Locally Estimated Scatterplot Smoothing (LOESS)}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/regression_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Instance-based}
+
+  Αυτές οι μεθόδοι δημιουργούν μία βάση δεδομένων με
+  παραδείγματα δεδομένων και συγκρίνουν τα νέα δεδομένα με αυτά που έχουν
+  καταχωρηθεί στην βάση δεδομένων χρησιμοποιώντας ένα μέτρο ομοιότητας,
+  για την εύρεση της καλύτερης αντιστοιχίας, πιθανοτικά.
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{k-Nearest Neighbour (kNN)}
+    \item{Learning Vector Quantization (LVQ)}
+    \item{Self-Organizing Map (SOM)}
+    \item{Locally Weighted Learning (LWL)}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/instance_based_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}  %% Minipage
+
+  \textbf{\large Regularization}
+
+  Χρησιμοποιούνται σαν επεκτάσεις άλλων μεθόδων και
+  "τιμωρούν" μοντέλα, βασισμένμενα στην πολυπολοκότητα τους, ευνοώντας έτσι
+  απλούστερα μοντέλα τα οποίο είναι παράλληλα καλύτερα στην γενίκευση της
+  επίλυσης του εκάστοτε προβλήματος.
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Ridge Regression}
+    \item{Least Absolute Shrinkage and Selection Operator (LASSO)}
+    \item{Least-Angle Regression (LARS)}
+    \item{Elastic Net}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/regularization_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Dimensionality Reduction}
+
+  Χρησιμοποιούνται για την αφαίρεση σχεδόν ασήμαντης πληροφορίας
+  από τα δεδομέναι. Πολλές από τις μεθόδους αυτές χρησιμοποιούνται σαν επεκτάσεις σε μοντέλα επίλυσης
+  προβλημάτων regression και classification
+
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Principal Component Analysis (PCA)}
+    \item{Discriminant Analysis: Linear (LDA), Mixture (MDA), Quadratic (QDA), Flexible (FDA)}
+    \item{Principal Component Regression (PCR)}
+    \item{Multidimensional Scaling (MDS)}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/dimensional_reduction_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Decision Trees}
+
+  Χρησιμοποιούνται για την κατασκευή μοντέλων
+  λήψης αποφάσεων, τα οποία χρησιμοποιούν τις πραγματικές τιμές των
+  χαρακτηριστικών των δεδομένων.
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Classification and Regression Tree (CART)}
+    \item{Conditional Decision Trees}
+    \item{M5}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/decision_tree_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Bayesian}
+
+  Εφαρμόζουν το θεώρημα του Bayes για την επίλυση τόσο προβλημάτων regression, αλλά και classification
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Naive Bayes}
+    \item{Gaussian Naive Bayes}
+    \item{Bayesian Network (BN)}
+    \item{Bayesian Belief Network (BBN)}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/bayesian_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Clustering}
+
+  Περιγράφουν τις κλάσεις του προβλήματος
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{k-Means}
+    \item{k-Medians}
+    \item{Expectation Maximisation (EM)}
+    \item{Hierarchical Clustering}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/bayesian_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Artificial Neural Networks (ANN)}
+
+  Μοντέλα εμπνευσμένα από τη δομή ή/και την λειτουργία των βιολογικών νευρωνικών δικτύων.
+  Χρησιμοποιούνται στην επίλυση προβλημάτων classification ή/και regression
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Perceptron}
+    \item{Back-Propagation}
+    \item{Radial Basis Function Network (RBFN)}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/artificial_neural_network_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+
+  \textbf{\large Deep Learning (DL)}
+
+  Οι αλγόριθμοι DL είναι η σύγχρονη επέκταση των ANN, τα οποία
+  εκμεταλλεύονται την αφθονία υπολογιστικής ισχύς των σύγχρονων υπολογιστικών συστημάτων.
+  \begin{itemize}
+    \setlength\itemsep{0em}
+    \item{Autoncoder}
+    \item{Multilayer Perseptron (MLP)}
+    \item{Deep Boltzmann Machine (DBM)}
+    \item{Deep Belief Networks (DBN)}
+    \item{Convolutional Neural Network (CNN)}
+    \item{Stacked Auto-Encoders}
+    \item{Recurrent Neural Networks (RNN)}
+  \end{itemize}%
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{./images/chapter3/deep_learning_algorithms.png}
+  \end{center}
+  %\caption{Αλγόριθμοι Regression}
+\end{minipage}
+\\\\
+
+Η μορφή της αναπαράστασης των δεδομένων αποτελεί σημαντικό παράγοντα στην
+απόδοση των αλγορίθμων ML. Μία αναπαράσταση αποτελείται από χαραχτηριστικά (features).
+Για παράδειγμα, ένα χρήσιμο χαρακτηριστικό, στην ταυτοποίηση ομιλιτή, από δεδομένα ήχου,
+είναι η εκτίμηση του μεγέθους της φωνητικής έκτασης του ομιλιτή.
+Έτσι, πολλά προβλήματα τεχνητής νοημοσύνης, μπορούν να λυθούν
+με κατάλληλη σχεδίαση και επιλογή των χαρακτηριστικών, για το συγκεκριμένο
+πρόβλημα. Το σύνολο των χαρακτηριστικών αυτών αποτελεί την αναπαράσταση των δεδομένων,
+σε ένα πιο υψηλό και αφαιρετικό επίπεδο αντίληψης για τους υπολογιστές, η οποία
+στην συνέχεια δίνεται σαν είσοδος σε έναν απλό ML αλγόριθμο, ο οποίος έχει
+μάθει να αντιστοιχεί την αναπαράσταση των δεδομένων στην επιθυμητή έξοδο.
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./images/chapter3/representation_dependency.png}
+  \caption[Παράδειγμα διαφορετικών αναπαραστάσεων των δεδομένων]{Παράδειγμα διαφορετικών αναπαραστάσεων των δεδομένων}
+  \label{fig:representation_dependency}
+\end{figure}
+
+Ένα απλό και κατανοητό παράδειγμα το οποίο δείχνει την εξάρτηση της επίδοσης των
+αλγορίθμων ML, από την μορφή της αναπαράστασης που του δίνεται, φαίνεται στο
+\autoref{fig:representation_dependency}. Έστω ότι θέλουμε να
+διαχωρίσουμε τα δεδομένα μας σε δύο κλάσεις, χαράζοντας μία ευθεία
+μεταξύ τους. Αν αναπαραστήσουμε τα δεδομένα στο Καρτεσιανό σύστημα συντεταγμένων (αριστερό διάγραμμα),
+τότε η επίλυση του προβλήματος είναι αδύνατη αφού δεν υπαρχει καμία ευθεία
+που να διαχωρίζει τις δύο κλάσεις. Ωστόσο, αν αναπαραστήσουμε τα δεδομένα
+στο Πολικό σύστημα συντεταγμένων (δεξί διάγραμμα), τότε το πρόβλημα λύνεται
+εύκολα, χαράζοντας μία κάθετη ευθεία, με $r  = a, a \in [r1, r2]$.
+
+Σε πληθώρα προβλημάτων τεχνητής νοημοσύνης, η επιλογή κατάλληλων χαρακτηριστικών
+είναι δύσκολο και χρονοβόρο έργο. Έστω για παράδειγμα ότι θέλουμε να αναγνωρίσουμε
+πρόσωπα σε εικόνες. Ένα χαρακτηριστικό θα μπορούσε να είναι τα μάτια. Δυστυχώς όμως,
+η αναγνώριση ματιών είναι και αυτό ένα δύσκολο πρόβλημα, αφού δεν μπορεί να
+περιγραφεί πάντα επακριβώς έχοντας σαν δεδομένα τις τιμές των pixel της εικόνας.
+Η γεωμετρική, για παράδειγμα, μορφή των ματιών σε μία εικόνα λήψης εξαρτάται από την
+γωνία λήψης της εικόνας, τον φωτισμό, τις ανακλάσεις του φωτισμού,
+την απόσταση από την οποία γίνεται η λήψη, την ανάλυση της κάμερας, κτλ.
+
+Το πρόβλημα αυτό, της επιλογής κατάλληλης αναπαράστασης, μπορεί να λυθεί
+χρησιμοποιώντας τεχνικές μηχανικής μάθησης για την εκμάθηση της ίδιας
+της αναπαράστασης. Αυτή η προσεγγιση είναι γνωστή ώς
+\emph{Εκμάθηση Αναπαραστάσεων (Representation Learning)}. Οι αλγόριθμοι
+εκμάθησης αναπαραστάσεων είναι ικανοί να "μάθουν" ένα καλό σετ χαρακτηριστικών (features).
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{./images/chapter3/autoencoder.png}
+  \caption[Autoncoder]{Autoncoder}
+  \label{fig:autoencoder}
+\end{figure}
+
+Ένα καλό παράδειγμα αλγόριθμου εκμάθησης αναπαραστάσεων είναι αυτό του Autoencoder \autoref{fig:autoencoder}.
+Ο Autoencoder είναι ο συνδυασμός ενός κωδικοποιητή (encoder) ο οποίος μετατρέπει
+τα δεδομένα εισόδου σε μία διαφορετική αναπαράσταση, και ενός αποκωδικοποιητή,
+ο οποίος ο οποίος επαναφέρει την αναπαράσταση αυτή στην αρχική μορφή των
+δεδομένων εισόδου. Οι Autoencoders ανήκουν στην κατηγορία των Νευρωνικών
+Δικτύων και είναι Unsupervised ML αλγόριθμοι.
+
