@@ -27,11 +27,12 @@
 \end{itemize}
 
 Στα πλαίσια της παρούσας διπλωματικής εργασίας, επιλέκτηκε να χρησιμοποιή-σουμε το
-\emph{Jetson TK1} development board της NVIDIA.
+\emph{Jetson TK1} development board της NVIDIA, που φαίνετaι στο \autoref{fig:jetson_tk1}.
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=0.9\textwidth]{./images/chapter5/jetson-tk1-labelled.jpg}
+  \includegraphics[width=0.9\textwidth]{./images/chapter4/jetson-tk1-labelled.jpg}
   \caption[Jetson TK1 development board]{Jetson TK1 development board}
+  \label{fig:jetson_tk1}
 \end{figure}
 Το Jetson TK1 ενσωματώνει το Tegra K1 SOC (CPU+GPU+ISP)
 και είναι πλήρες συμβατό με διάφορες διανομές λειτουργικών συστημάτων Linux (Ubuntu, Debian, Arch, Fedora, openSUSE, Gentoo).
@@ -61,7 +62,26 @@
   \item{GPIO: Προσφέρει δύο θυρες επέκτασης (expansion ports), με 50 και 75 ακροδέκτες αντίστοιχα. Χρησιμο κυρίως για, επικοινωνία συσκευών με SPI, οδήγηση σερβο-κινητήρων, διακλάδωση τροφοδοσίας σε τρίτες συσκευές, κτλ.}
 \end{itemize}
 
-Όσον αφορά την υλοποίηση και ανάπτυξη Νευρωνικών Δικτύων σε ενσωματωμένα συστήματα, το Jetson TK1 θεωρείτε ιδανικό
-αφού υποστηρίζει CUDA και cuDNN. H cuDNN (CUDA Deep Neural Network library) είναι GPU-accelerated βιβλιοθήκη για Νευρωνικά Δίκτυα,
+Όσον αφορά την υλοποίηση και ανάπτυξη Νευρωνικών Δικτύων σε ενσωματωμένα συστήματα,
+η πλατφόρμα Jetson TK1 θεωρείτε ιδανική αφού υποστηρίζει CUDA και cuDNN.
+H cuDNN (CUDA Deep Neural Network library) είναι GPU-accelerated βιβλιοθήκη για Νευρωνικά Δίκτυα,
 η οποία αναπτύχθηκε από την NVIDIA και προσφέρει υψηλού επιπέδου υλοποιήσεις για ρουτίνες όπως συνέλιξη, κανονικοποίηση δεδομένων, pooling, επίπεδα ενεργοποίησης, κτλ.
-Η βιβλιοθήκη cuDNN χρησιμοποιέιτε και ενσωματώνεται στα πιο δημοφιλείς frameworks για σχεδίαση και υλοποίηση DNN, όπως Caffe \cite{jia2014caffe}, Tensorflow \cite{DBLP:journals/corr/AbadiBCCDDDGIIK16}, Theano \cite{2016arXiv160502688full}\cite{bergstra+al:2010-scipy}\cite{Bastien-Theano-2012}, Torch \cite{collobert2002torch}\cite{collobert2011torch7}\cite{collobert2012implementing}, CNTΚ και Keras.
+Η βιβλιοθήκη cuDNN χρησιμοποιέιτε και ενσωματώνεται στα πιο δημοφιλή σήμερα frameworks για σχεδίαση και υλοποίηση μοντέλων DNN,
+όπως Caffe \cite{jia2014caffe}, Tensorflow \cite{DBLP:journals/corr/AbadiBCCDDDGIIK16},
+Theano \cite{2016arXiv160502688full}\cite{bergstra+al:2010-scipy}\cite{Bastien-Theano-2012},
+Torch \cite{collobert2002torch}\cite{collobert2011torch7}\cite{collobert2012implementing}, CNTΚ και Keras.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./images/chapter4/cortex_A15_chip_diagram.png}
+  \caption[Jetson TK1 development board]{Jetson TK1 development board}
+  \label{fig:cortex_A15}
+\end{figure}
+
+Ένα από τα μειονεκτήματα της πλατφόρμας Jetson TK1 είναι αρχιτεκτονική των 32 bit του επεξεργαστή ARM Cortex-A15 MPCore
+που έχει ενσωματωμένοv \autoref{fig:cortex_A15}. Με την εμφάνιση των επεξεργαστών ARM Cortex-A57, οι οποίοι είναι αρχιτεκτονικής 64 bit,
+η υποστήριξη σε λογισμικά, τόσο από την πλευρά της NVIDIA όσο και από την ανοικτού-κώδικα (open-source) κοινότητα, μειώθηκε.
+Η NVIDIA σταμάτησε να υποστηρίζει μηχανήματα αρχιτεκτονικής 32 bit, τις βιβλιοθήκες CUDA και cuDNN,
+από την έκτη και δεύτερη έκδοση αντίστοιχα. Η CUDA είναι σήμερα στην έκδοση 8 και η cuDNN στην έκδοση 5,
+οι οποίες φέρουν τρομερές αλλαγές στην επίδοση των αλγορίθμων βαθιάς εκμάθησης
+(\href{https:/developer/nvidia/cudnn}{https:/developer/nvidia/cudnn}).

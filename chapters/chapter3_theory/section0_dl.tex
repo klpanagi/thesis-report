@@ -1,7 +1,7 @@
-\section{Εισαγωγή στην Επιστήμη της Μηχανικής Μάθησης}
+\section{Εισαγωγή στην Επιστήμη της Σύγχρονης Μηχανικής Μάθησης}
 \label{sec:theory_ml}
 
-Η εισαγωγή του κλάδου του ML στην επιστήμη των υπολογιστών,
+Η εισαγωγή του κλάδου της μηχανικής μάθησης στην επιστήμη των υπολογιστών,
 επέτρεψε στους υπολογιστές να μπορούν να αντιμετωπίσουν προβλήματα που εμπλέκουν
 την αντίληψη για τον πραγματικό κόσμο και να πέρνουν υποκειμενικές αποφάσεις.
 
@@ -29,6 +29,8 @@
     \item{Μοντελοποίηση και χρησιμοποίηση της φυσικής γλώσσας του ανθρώπου από μηχανές - Natural Language Generation}
   \end{itemize}
   \item{Μηχανές αναζήτησης}
+  \item{Αναπαράστασh γνώσης - Knowledge Representation}
+  \item{Ρομποτική}
 \end{itemize}
 
 Τα προβλήματα Μηχανικής Μάθησης χωρίζονται σε τρεις μεγάλες κατηγορίες:
@@ -50,6 +52,16 @@
       είναι η αυτόματη πλοήγηση ενός οχήματος.
     }
 \end{itemize}
+Επιπλέον, κάποια προβλήματα είναι υβριδικά, δηλαδή συνδυασμός των πιο πάνω.
+Στο \autoref{fig:ml_venn_diagram} απεικονίζεται το διάγραμμα Venn των διαφόρων κατηγοριών
+προβλημάτων ML.
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./images/chapter3/ml_venn_diagram.jpg}
+  \caption[Διάγραμμα Venn των διαφόρων κατηγοριών μηχανικής μάθησης]{Διάγραμμα Venn των διαφόρων κατηγοριών μηχανικής μάθησης}
+  \label{fig:ml_venn_diagram}
+\end{figure}
+
 Περεταίρω, οι Supervised Learning αλγόριθμοι χωρίζονται σε 2 κατηγορίες, αναλόγα
 με την επιθυμητή μορφή της εξόδου του αλγόριθμου ML:
 \begin{itemize}
@@ -58,7 +70,7 @@
 \end{itemize}
 
 Γενικότερα, οι αλγόριθμοι ML ομαδοποιούνται και ανάλογα με την ομοιότητα τους
-σε σχέση με με την λειτουργία που εκτελούνε. Πιο κάτω αναφέρονται οι πιο δημοφιλείς
+σε σχέση με με την λειτουργία που εκτελούν. Πιο κάτω αναφέρονται οι πιο δημοφιλείς
 αλγόριθμοι ML, ομαδοποιημένοι με βάση την λειτουργία τους
 \\
 
@@ -82,7 +94,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/regression_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
@@ -105,7 +116,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/instance_based_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}  %% Minipage
@@ -128,7 +138,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/regularization_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
@@ -151,7 +160,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/dimensional_reduction_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
@@ -172,7 +180,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/decision_tree_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
@@ -192,7 +199,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/bayesian_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
@@ -212,7 +218,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/bayesian_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
@@ -232,7 +237,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/artificial_neural_network_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 
 \begin{minipage}{0.5\textwidth}
@@ -256,7 +260,6 @@
   \begin{center}
     \includegraphics[width=0.6\textwidth]{./images/chapter3/deep_learning_algorithms.png}
   \end{center}
-  %\caption{Αλγόριθμοι Regression}
 \end{minipage}
 \\\\
 
@@ -278,7 +281,7 @@
 \end{figure}
 
 Ένα απλό και κατανοητό παράδειγμα το οποίο δείχνει την εξάρτηση της επίδοσης των
-αλγορίθμων ML, από την μορφή της αναπαράστασης που του δίνεται, φαίνεται στο
+αλγορίθμων ML από την μορφή της αναπαράστασης που του δίνεται, φαίνεται στο
 \autoref{fig:representation_dependency}. Έστω ότι θέλουμε να
 διαχωρίσουμε τα δεδομένα μας σε δύο κλάσεις, χαράζοντας μία ευθεία
 μεταξύ τους. Αν αναπαραστήσουμε τα δεδομένα στο Καρτεσιανό σύστημα συντεταγμένων (αριστερό διάγραμμα),
@@ -304,17 +307,22 @@
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.3\textwidth]{./images/chapter3/autoencoder.png}
-  \caption[Autoncoder]{Autoncoder}
+  \caption[Απλό μοντέλο Autoncoder με ένα κρυφό επίπεδο]{Απλό μοντέλο Autoncoder με ένα κρυφό επίπεδο.}
   \label{fig:autoencoder}
 \end{figure}
-Ένα καλό παράδειγμα αλγόριθμου εκμάθησης αναπαραστάσεων είναι αυτό του
-Autoencoder \cite{baldi2012autoencoders} (\autoref{fig:autoencoder}).
-Ο Autoencoder είναι ο συνδυασμός ενός κωδικοποιητή (encoder) ο οποίος μετατρέπει
-τα δεδομένα εισόδου σε μία διαφορετική αναπαράσταση, και ενός αποκωδικοποιητή,
-ο οποίος ο οποίος επαναφέρει την αναπαράσταση αυτή στην αρχική μορφή των
+Ένα απλό παράδειγμα αλγόριθμου εκμάθησης αναπαραστάσεων είναι αυτό του
+Autoencoder \cite{baldi2012autoencoders} που φαίνeται στο (\autoref{fig:autoencoder}).
+Ο Autoencoder, στην πιο απλή του μορφή, είναι ο συνδυασμός ενός κωδικοποιητή (encoder) ο οποίος μετατρέπει
+τα δεδομένα εισόδου σε μία διαφορετική αναπαράσταση, και ενός αποκωδικοποιητή
+ο οποίος επαναφέρει την αναπαράσταση αυτή στην αρχική μορφή της αναπαράστασης των
 δεδομένων εισόδου. Οι Autoencoders ανήκουν στην κατηγορία των Νευρωνικών
 Δικτύων και είναι Unsupervised ML αλγόριθμοι.
-
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{./images/chapter3/cnn_deeper.jpg}
+  \caption[Παράδειγμα απεικόνισης των φίλτρων ενός μοντέλου CNN για αναγνώριση προσώπου]{Παράδειγμα απεικόνισης των φίλτρων ενός μοντέλου CNN για αναγνώριση προσώπου}
+  \label{fig:cnn_filter_visualization}
+\end{figure}
 Ένα συχνά εμφανιζόμενο πρόβλημα σε εφαρμογές τεχνητής νοημοσύνης είναι
 η εύρεση και εξαγωγή χαρακτηριστικών \emph{υψηλού επιπεδου} από τα
 δεδομένα. Τα μοντέλα \emph{Βαθιάς Μηχανικής Μάθησης} δίνουν λύσεις
@@ -322,7 +330,35 @@ Autoencoder \cite{baldi2012autoencoders} (\autoref{fig:autoencoder}).
 οι οποίες εκφράζονται με βάση άλλες, απλούστερες αναπαραστάσεις. Αυτή η
 προσέγγιση δίνει την δυνατότητα στους υπολογιστές να κατασκευάζουν σύνθετες
 έννοιες χρησιμοποιώντας πιο απλές έννοιες. Για παράδειγμα, η αναγνώριση αντικειμένων
-μπορει να εκφραστει με ένοιες όπως το γεωμετρικό σχήμα των αντικειμένων,
+μπορεί να εκφραστεί με έννοιες όπως το γεωμετρικό σχήμα των αντικειμένων,
 το οποίο με την σειρά του ορίζεται από γωνίες και περιγράμματα. Περεταίρω,
-οι γωνίες και τα περιγράμματα ορίζονται από ακμές.
+οι γωνίες και τα περιγράμματα ορίζονται από ακμές. Στο \autoref{fig:cnn_filter_visualization},
+παρουσιάζονται τα φίλτρα που έμαθε ένα μοντέλο CNN για αναγνώριση προσώπων σε εικόνες.
+Το συγκεκριμένο μοντέλο CNN έχει 3 κρυφά επίπεδα (hidden layers); το πρώτο κρυφό
+επίπεδο εξάγει από τα δεδομένα εισόδου (τιμές των πίξελ) πληροφορία σχετικά με
+τις ακμές, το δεύτερο, έχοντας σαν είσοδο την πληροφορία παρουσίας ακμών, εξάγει πληροφορία
+σχετικά με τις γωνίες και τα περιγράμματα, και το τρίτο πέρνει σαν είσοδο
+την πληροφορία αυτή και κατασκευάζει μοντέλα αντικειμένων, δηλαδή εξάγει πληροφορία
+σχετικά με το γεωμετρικό σχήμα των αντικειμένων.
 
+Συνοψίζοντας, η βαθιά μηχανική μάθηση, είναι μία προσέγγιση της σύγχρονης
+τεχνητής νοημοσύνης. Πιο συγκεκριμένα, είναι ένα είδος μηχανικής μάθησης, η
+οποία προσδίδει σε υπολογιστικά συτήματα ευφυΐα, δηλαδή την ικανότητα
+εξέλιξης με την χρήση εμπειρίας και δεδομένων. Σύμφωνα με τους
+\emph{Ian Goodfellow, Yoshua Bengio και Aaron Courville}, η μηχανική μάθηση είναι η
+μόνη βιώσιμη προσέγγιση στην κατασκευή συστημάτων AI τα οποία μπορούν να
+αντεπεξέλθουν σε πολύπλοκα περιβάλλοντα και προβλήματα \cite{Goodfellow-et-al-2016-Book}.
+Η βαθιά μηχανική μάθηση καταφέρνει να μαθένει να αναραπιστά τον κόσμο ως μία ένθετη
+ιεραρχία εννοιών όπου η κάθε έννοια ορίζεται σε σχέση με άλλες πιο απλές έννοιες,
+και πιο αφηρημένες μορφές αναπαραστάσεων σε σχέση με λιγότερο αφηρημένες.
+Το διάγραμμα Venn που φαίνεται στο \autoref{fig:ai_venn_diagram} δείχνει η
+βαθια μηχανική μάθηση ανήκει στην κατηγορία της εκμάθησης αναπαραστάσεων,
+η οποία με την σειρά της είναι ένα είδος μηχανικής μάθησης που χρησιμοποιείται
+για την κατασκευή νοούμενων συστημάτων.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./images/chapter3/ai_venn_diagram.png}
+  \caption[Παράδειγμα απεικόνισης των φίλτρων ενός μοντέλου CNN για αναγνώριση προσώπου]{Παράδειγμα απεικόνισης των φίλτρων ενός μοντέλου CNN για αναγνώριση προσώπου}
+  \label{fig:ai_venn_diagram}
+\end{figure}
