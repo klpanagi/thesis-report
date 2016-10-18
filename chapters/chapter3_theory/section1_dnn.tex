@@ -82,9 +82,19 @@ f(x) =
   \label{fig:neuron_and}
 \end{figure}
 
-Μία από τις τρεις θεμείώδεις εφαρμογές του μαθηματικού μοντέλου του νευρώνα είναι η υλοποίηση της
-δυαδικής πράξης \textbf{AND}, η οποία και φαίνεται στο \autoref{fig:neuron_and}.
-Οι άλλες δύο είναι προφανώς οι πράξεις \textbf{OR} και \textbf{NOT}.
+Οι τρεις θεμελιώδη εφαρμογές τoυ μαθηματικού μοντέλου του νευρώνα είναι οι
+μονtελοποίηση των λογικώ πυλών \emph{AND, OR και NOT}. Στο \autoref{neuron_and}
+παρουσιάζeται το αντίστoιχο μοντέλο της λογικής πύλης \emph{AND}. Ο νευρώνας
+δέχεται σαν είσοδο 2 σήματa και μία παράμετρο πόλωσης,
+τα $X_{1}$,  $X_{2}$ και $b=-1.5$ αντίστoιχα. Η έξοσος $a$ ορίζεται ως:
+\[
+  a = f(x) = f(X_{1}, X_{2}) =
+  \begin{cases}
+    0, & x < 0 \\
+    1, & x \geq 0 \\
+  \end{cases},  
+  όπου x = X_{1} + X_{5} - 1.5
+\]
 
 H σύνδεση πολλών νευρώνων σε σε έναν γράφο δομεί ένα \emph{Νευρωνικό Δίκτυο},
 το οποίο έχει την μορή του σχήματος \autoref{fig:simple_nn}.
@@ -92,7 +102,7 @@ To συγκεκριμένο μοντέλο ΝΝ ονομάζεται \emph{Perce
 \emph{Feedforward Artificial Neural Network}, ο οποίος έχει τα εξής χαρακτηριστικα:
 \begin{itemize}
   \item{Οι διασυνδέσεις μεταξύ των νευρώνων δεν σχηματίζουν σε καμία περίπτωση κύκλο.}
-  \item{Αποτελείτε από 2 επίπεδα; ένα κρυφό επίπεδο και το επίπεδο εξόδου}
+  \item{Αποτελείτε από 2 επίπεδα; ένα κρυφό και το επίπεδο εξόδου}
   \item{Χρησιμοποιείται η σιγμοειδή συνάρτηση ενεργοποίησης}
 \end{itemize}
 
@@ -115,13 +125,20 @@ To συγκεκριμένο μοντέλο ΝΝ ονομάζεται \emph{Perce
 εκπαίδευση των νευρωνικών δικτύων.
 
 \begin{algorithm}[!htp]
-  \caption{Υπολογισμός εξόδων ενός ΝΝ}
+  \caption{Feedforward αλγόριθμος}
   \label{alg:nn_forward}
   \begin{algorithmic}[1]
-    \Procedure {nn\_forward}{X, W, B, num\_layers}
+    \Function{activation}{a}
+      \State \Return $1.0 / (1.0 + e^{-x})$
+    \EndFunction \\
+    \Procedure{nn\_forward}{X, W, B, num\_layers}
+      \State Starting from the input layer, use $\sigma$ to do
+         a forward pass trough the network, computing the activities of the
+        neurons at each layer.
       \State $k \gets 0$
       \While{$k < num\_layers$}
-        \State $X \gets 1 / (1 + e^{-\sum_{\imath} X \odot W_{k} + B_{k}})$
+      \State $X \gets \Call{activation}{X \odot W_{k} + B_{}}$  \Comment{If we want to keep output from
+        intermediate layers, we must add up one dimension on $X$}.
         \State $k \gets k+1$
       \EndWhile
     \EndProcedure
@@ -139,7 +156,13 @@ TODO!
 
 \subsection{Ο αλγόριθμος Backpropagation}
 
-TODO!
+Ο αλγόριθμος \emph{backpropagation}, γνωστός και ώς \emph{Stochastic Gradient Descent},
+εμφανίστηκε το 1970, και υποτιμήθηκε
+μέχρι το 1986, όταν οι David Rumelhart, Geoffrey Hinton, και Ronald Williams
+απέδειξαν την αποδοτικότητα του στην εκπαίδευση των νευρωνικών δικτύων, κυρίως
+όσον αφορά στην ταχύτητα \cite{rumelhart1988learning}.
+Πλέον χρησιμοποiείται για την εκαπίδευση
+μεγάλων νευρωνικών δικτύων με εκατομμύρια παραμέτρους.
 
 \subsection{Αρχιτεκτονικές}
 
