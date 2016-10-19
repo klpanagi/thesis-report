@@ -97,7 +97,7 @@ f(x) =
 \]
 
 H σύνδεση πολλών νευρώνων σε σε έναν γράφο δομεί ένα \emph{Νευρωνικό Δίκτυο},
-το οποίο έχει την μορή του σχήματος \autoref{fig:simple_nn}.
+το οποίο έχει την μορή που φαίνεται στο \autoref{fig:simple_nn}.
 To συγκεκριμένο μοντέλο ΝΝ ονομάζεται \emph{Perceptron} ή αλλιώς
 \emph{Feedforward Artificial Neural Network}, ο οποίος έχει τα εξής χαρακτηριστικα:
 \begin{itemize}
@@ -137,7 +137,7 @@ To συγκεκριμένο μοντέλο ΝΝ ονομάζεται \emph{Perce
         neurons at each layer.
       \State $k \gets 0$
       \While{$k < num\_layers$}
-      \State $X \gets \Call{activation}{X \odot W_{k} + B_{}}$  \Comment{If we want to keep output from
+      \State $X \gets \Call{activation}{\sum_{\imath} X \odot W_{k} + B_{k}}$  \Comment{If we want to keep output from
         intermediate layers, we must add up one dimension on $X$}.
         \State $k \gets k+1$
       \EndWhile
