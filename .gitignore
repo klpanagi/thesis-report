@@ -7,6 +7,10 @@
 *.toc
 *.bbl
 *.blg
+*.equ
+*.blg
+*.fls
+*.fdb_*
 *.*.swp
 *.*.swp
 *.*.*.swp

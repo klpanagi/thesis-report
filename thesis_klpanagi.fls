@@ -1,7 +1,0 @@
-PWD /home/klpanagi/Desktop/thesis-report
-INPUT /etc/texmf/web2c/texmf.cnf
-INPUT /usr/share/texmf/web2c/texmf.cnf
-INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-INPUT /var/lib/texmf/web2c/xetex/xetex.fmt
-INPUT thesis_klpanagi.tex
-OUTPUT thesis_klpanagi.log
