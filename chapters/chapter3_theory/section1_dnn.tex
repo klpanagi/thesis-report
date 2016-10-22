@@ -1,8 +1,8 @@
 \section{Νευρωνικά Δίκτυα με Βάθος}
 \label{sec:theory_dnn}
 
-Τα Νευρωνικά Δίκτυα είναι εμπνευσμένα από το βιολογικό νευρικό σύστημα του
-του ανθρώπου. Η βασική επεξεργαστική μονάδα του εγκεφάλου είναι ο \emph{νευρώνας}.
+Τα Νευρωνικά Δίκτυα είναι εμπνευσμένα από το βιολογικό νευρικό σύστημα
+του ανθρώπου. Η βασική επεξεργαστική μονάδα του εγκεφάλου είναι ο \emph{νευρώνας} (\autoref{fig:neuron_bio}).
 Το ανθρώπινο νευρικό σύστημα αποτελείται από περίπου 86 εκατομμύρια νευρώνες και περίπου
 $10^14 - 10^15$ διασυνδέσεις.
 \begin{figure}[!ht]
@@ -11,7 +11,6 @@ $10^14 - 10^15$ διασυνδέσεις.
   \caption[Βιολογικός Νευρώνας]{Βιολογικός νευρώνας.}
   \label{fig:neuron_bio}
 \end{figure}
-Στο \autoref{fig:neuron_bio} φαίνεται η μορφή και τα μέλη ενός βιολογικού νευρώνα
 Τα κύρια μέρη ενός νευρώνα είναι τα εξής:
 \begin{itemize}
   \item{\textbf{Δενδρίτης (Dendrites)}: Δέχεται είσοδο από άλλους νευρώνες.}
@@ -92,7 +91,7 @@ f(x) =
   \label{fig:neuron_and}
 \end{figure}
 
-Οι τρεις θεμελιώδεις εφαρμογές τoυ μαθηματικού μοντέλου του νευρώνα είναι η
+Οι τρεις θεμελιώδεις εφαρμογές του μαθηματικού μοντέλου του νευρώνα είναι η
 μοντελοποίηση των λογικών πυλών \emph{AND, OR και NOT}. Στο \autoref{fig:neuron_and}
 παρουσιάζεται το αντίστοιχο μοντέλο της λογικής πύλης \emph{AND}. Ο νευρώνας
 δέχεται σαν είσοδο 2 σήματα ($X_{1}$,  $X_{2}$) και μία παράμετρο πόλωσης ($b=-1.5$).
@@ -106,7 +105,7 @@ f(x) =
    x = X_{1} + X_{5} - 1.5
 \end{gather*}
 
-Η σύνδεση πολλών νευρώνων σε σε έναν γράφο δομεί ένα \emph{Νευρωνικό Δίκτυο}.
+Η σύνδεση πολλών νευρώνων σε σε ένα γράφο δομεί ένα \emph{Νευρωνικό Δίκτυο}.
 Το μοντέλο ΝΝ που φαίνεται στο \autoref{fig:simple_nn}
 ονομάζεται \emph{Perceptron} ή αλλιώς
 \emph{Feedforward Artificial Neural Network - ANN}.
@@ -236,7 +235,7 @@ Tanh, ReLU και Maxout.
   \centering
   \includegraphics[width=0.4\textwidth]{./images/chapter3/relu.jpg}
   \caption[Συνάρτηση Rectified Linear Unit - ReLU]{Συνάρτηση Rectified Linear Unit - ReLU}
-  \label{fig:tanh}
+  \label{fig:relu}
 \end{figure}
 
 Το μειονέκτημά της είναι ότι κατά την διάρκεια της εκπαίδευσης του νευρωνικού
@@ -409,7 +408,7 @@ $w_{1}$ μπορεί να γραφεί σε πιο αναλυτική μορφή
 \begin{equation*}
   w_{i}^{+} = w_{i} - step * \frac{\partial E_{total}}{\partial w_{i}}
 \end{equation*}
-δηλαδή αφαιρόντας από την αρχική τιμή την μεταβολή του σφάλματος πολλαπλασιασμένη
+δηλαδή αφαιρώντας από την αρχική τιμή την μεταβολή του σφάλματος πολλαπλασιασμένη
 με ένα βαθμωτό μέγεθος. Το μέγεθος αυτό οποίο ονομάζεται \emph{ρυθμός ανανέωσης}
 των βαρών και είναι σταθερά της διαδικασίας εκπαίδευσης.
 
@@ -425,8 +424,8 @@ propagation οι οποίοι χρησιμοποιούνται για την ε�
 καταλήγοντας έτσι σε μία ολοκληρωμένη μορφή του αλγορίθμου backpropagation.
 
 \makeatletter
-\newcommand{\HEADER}[1]{\State\underline{\textsc{#1}}\begin{ALC@g}}
-\newcommand{\ENDHEADER}{\end{ALC@g}}
+\newcommand{\HEADER}[1]{\State\underline{\textsc{#1}}}
+  \newcommand{\ENDHEADER}{}
 \makeatother
 \newcommand{\STATEI}[1]{\State
   \begin{tabular}{@{}p{\dimexpr \textwidth-\labelwidth}@{}}%
@@ -436,28 +435,28 @@ propagation οι οποίοι χρησιμοποιούνται για την ε�
   \end{tabular}
 }
 
-%\begin{algorithm}[!htp]
-  %\caption{Backpropagation learning algorithm}
-  %\label{alg:backpropagation}
-  %\begin{algorithmic}
-  %\For{d in data}
-    %\HEADER{Forwards Pass}
-    %\STATEI{Starting from the input layer, do a forward pass trough the network,}
-    %\STATEI {computing the activities of the neurons at each layer.}
-    %\ENDHEADER
-    %\HEADER{Backwards Pass}
-    %\STATEI{Compute the derivatives of the error function with respect to}
-    %\STATEI{the output layer activities}
-      %\For{layer in layers}
-      %\STATEI{Compute the derivatives of the error function with respect to}
-      %\STATEI{the inputs of the upper layer neurons}
-      %\STATEI{Compute the derivatives of the error function with respect to}
-      %\STATEI{the weights between the outer layer and the layer below}
-      %\STATEI{Compute the derivatives of the error function with respect}
-      %\STATEI{to the activities of the layer below}
-      %\EndFor
-      %\STATEI{Updates the weights.}
-    %\ENDHEADER
-  %\EndFor
-  %\end{algorithmic}
-%\end{algorithm}
+\begin{algorithm}[!htp]
+  \caption{Backpropagation learning algorithm}
+  \label{alg:backpropagation}
+  \begin{algorithmic}
+  \For{d in data}
+    \HEADER{Forwards Pass}
+    \STATEI{Starting from the input layer, do a forward pass trough the network,}
+    \STATEI {computing the activities of the neurons at each layer.}
+    \ENDHEADER
+    \HEADER{Backwards Pass}
+    \STATEI{Compute the derivatives of the error function with respect to}
+    \STATEI{the output layer activities}
+      \For{layer in layers}
+      \STATEI{Compute the derivatives of the error function with respect to}
+      \STATEI{the inputs of the upper layer neurons}
+      \STATEI{Compute the derivatives of the error function with respect to}
+      \STATEI{the weights between the outer layer and the layer below}
+      \STATEI{Compute the derivatives of the error function with respect}
+      \STATEI{to the activities of the layer below}
+      \EndFor
+      \STATEI{Updates the weights.}
+    \ENDHEADER
+  \EndFor
+  \end{algorithmic}
+\end{algorithm}
