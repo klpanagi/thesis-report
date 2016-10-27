@@ -20,34 +20,37 @@
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./images/chapter6/benchmark_alexnet_jetson.png}
+  \caption[Χρόνoι εκτέλεσης για το δίκτυο AlexNet στο Jetson TK1]{Χρόνoι εκτέλεσης για το δίκτυο AlexNet στο Jetson TK1}
+  \label{fig:alexnet_results_jetson}
+\end{figure}
 
-Στον πιο κάτω πίνακα παρουσιάζονται τα συγκριτικά αποτελέσματα της
+Στον \autoref{tab:alexnet_jetson} παρουσιάζονται τα συγκριτικά αποτελέσματα της
 εκτέλεσης τόσο στην μονάδα CPU (με μεταβλητό αριθμό νημάτων), όσο και στην
 GPU (με και χωρίς εκ-των προτέρων δέσμευση μνήμης).
 
-\begin{center}
-  \small
-  \begin{tabular}[center]{ | c | c | c | c | c | }
-    \hline
-    \rowcolor{Gray}
-    Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
-    \hline
-    CPU & 1 & N/A & 0.62 & 6.318\\
-    CPU & 2 & N/A & 0.4845 & 8.019\\
-    CPU & 4 & N/A & 0.4634 & 10.692\\
-    CPU & 8 & N/A & 0.4646 & 10.692\\
-    GPU & N/A & None & 0.1049 & 8.5\\
-    GPU & N/A & 700MB & 0.1 & 8.5\\
-    \hline
-  \end{tabular}
-\end{center}
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{./images/chapter6/benchmark_alexnet_jetson.png}
-  \caption[Χρόνoι εκτέλεσης δικτύου AlexNet στο Jetson TK1]{Χρόνoι εκτέλεσης δικτύου AlexNet στο Jetson TK1}
-  \label{fig:alexnet_results_jetson}
-\end{figure}
+\begin{table}[H]
+  \begin{center}
+    \caption{Μετρήσεις πειραμάτων για το δίκτυο AlexNet στο Jetson TK1}
+    \label{tab:alexnet_jetson}
+    \small
+    \begin{tabular}[center]{ | c | c | c | c | c | }
+      \hline
+      \rowcolor{Gray}
+      Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
+      \hline
+      CPU & 1 & N/A & 0.62 & 6.318\\
+      CPU & 2 & N/A & 0.4845 & 8.019\\
+      CPU & 4 & N/A & 0.4634 & 10.692\\
+      CPU & 8 & N/A & 0.4646 & 10.692\\
+      GPU & N/A & None & 0.1049 & 8.5\\
+      GPU & N/A & 700MB & 0.1 & 8.5\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
 
 %%----------------------------------------------------------------------------
@@ -64,26 +67,30 @@ GPU (με και χωρίς εκ-των προτέρων δέσμευση μνή
     \end{itemize}
 \end{itemize}
 
-Στον πιο κάτω πίνακα παρουσιάζονται τα συγκριτικά αποτελέσματα της
+Στον \autoref{tab:vgg16_jetson} παρουσιάζονται τα συγκριτικά αποτελέσματα της
 εκτέλεσης τόσο στην μονάδα CPU (με μεταβλητό αριθμό νημάτων), όσο και στην
 GPU (με και χωρίς εκ-των προτέρων δέσμευση μνήμης).
 
-\begin{center}
-  \small
-  \begin{tabular}[center]{ | c | c | c | c | c | }
-    \hline
-    \rowcolor{Gray}
-    Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
-    \hline
-    CPU & 1 & N/A & 9.431 & 6.318 \\
-    CPU & 2 & N/A & 5.4476 &  8.748\\
-    CPU & 4 & N/A & 3.6224 & 13.122\\
-    CPU & 8 & N/A & 3.6308 & 13.122\\
-    GPU & N/A & None & 0.6983 & 11.907\\
-    GPU & N/A & 720MB & 0.5761 & 11.907\\
-    \hline
-  \end{tabular}
-\end{center}
+\begin{table}[H]
+  \begin{center}
+    \caption{Μετρήσεις πειραμάτων για το δίκτυο VGG16 στο Jetson TK1}
+    \label{tab:vgg16_jetson}
+    \small
+    \begin{tabular}[center]{ | c | c | c | c | c | }
+      \hline
+      \rowcolor{Gray}
+      Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
+      \hline
+      CPU & 1 & N/A & 9.431 & 6.318 \\
+      CPU & 2 & N/A & 5.4476 &  8.748\\
+      CPU & 4 & N/A & 3.6224 & 13.122\\
+      CPU & 8 & N/A & 3.6308 & 13.122\\
+      GPU & N/A & None & 0.6983 & 11.907\\
+      GPU & N/A & 720MB & 0.5761 & 11.907\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
 Παρατηρούμε ότι η εκτέλεση στην μονάδα GPU είναι 5.187 φορές πιο
 γρήγορη (χωρίς εκ-των προτέρων δέσμευση μνήμης).
@@ -97,14 +104,14 @@ GPU με εκ-των-προτέρων δέσμευση 720MB μνήμης.
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.8\textwidth]{./images/chapter6/benchmark_vgg16_jetson.png}
-  \caption[Χρόνoι εκτέλεσης δικτύου VGG16 στο Jetson TK1]{Χρόνoι εκτέλεσης δικτύου VGG16 στο Jetson TK1}
+  \caption[Χρόνoι εκτέλεσης για το δίκτυο VGG16 στο Jetson TK1]{Χρόνoι εκτέλεσης για το δίκτυο VGG16 στο Jetson TK1}
   \label{fig:vgg16_results_jetson}
 \end{figure}
 
 
 %%----------------------------------------------------------------------------
 
-\subsection{Tiny-Yolo}
+\subsection{Tiny-YOLO}
 
 Οι παράμετροι των πειραμάτων είναι οι εξής:
 \begin{itemize}
@@ -116,27 +123,31 @@ GPU με εκ-των-προτέρων δέσμευση 720MB μνήμης.
     \end{itemize}
 \end{itemize}
 
-\begin{center}
-  \small
-  \begin{tabular}[center]{ | c | c | c | c | c | }
-    \hline
-    \rowcolor{Gray}
-    Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
-    \hline
-    CPU & 1 & N/A & 1.5902 & 6.318\\
-    CPU & 2 & N/A & 1.0276 & 8.504\\
-    CPU & 4 & N/A & 0.8137 & 11.9\\
-    CPU & 8 & N/A & 0.8126 & 11.9\\
-    GPU & N/A & None & 0.5543 & 8\\
-    GPU & N/A & 400MB & 0.3872 & 8\\
-    \hline
-  \end{tabular}
-\end{center}
+\begin{table}[!ht]
+  \begin{center}
+    \caption{Μετρήσεις πειραμάτων για το δίκτυο Tiny-YOLO στο Jetson TK1}
+    \label{tab:yolo_jetson}
+    \small
+    \begin{tabular}[center]{ | c | c | c | c | c | }
+      \hline
+      \rowcolor{Gray}
+      Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
+      \hline
+      CPU & 1 & N/A & 1.5902 & 6.318\\
+      CPU & 2 & N/A & 1.0276 & 8.504\\
+      CPU & 4 & N/A & 0.8137 & 11.9\\
+      CPU & 8 & N/A & 0.8126 & 11.9\\
+      GPU & N/A & None & 0.5543 & 8\\
+      GPU & N/A & 400MB & 0.3872 & 8\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.8\textwidth]{./images/chapter6/benchmark_yolotiny_jetson.png}
-  \caption[Χρόνoι εκτέλεσης δικτύου Tiny-YOLO στο Jetson TK1]{Χρόνοι εκτέλεσης δικτύου Tiny-YOLO στο Jetson TK1}
+  \caption[Χρόνoι εκτέλεσης για το δίκτυο Tiny-YOLO στο Jetson TK1]{Χρόνοι εκτέλεσης για το δίκτυο Tiny-YOLO στο Jetson TK1}
   \label{fig:yolotiny_results_jetson}
 \end{figure}
 
@@ -150,3 +161,5 @@ GPU με εκ-των-προτέρων δέσμευση 720MB μνήμης.
 το εκτελέσιμο τερματίζει με σφάλμα \emph{CUDA Error: out of memory}.
 Ο λόγος που αυτό συμβαίνει μόνο στην περίπτωση εκτέλεσης στην μονάδα GPU
 δεν είναι εμφανές. Πιθανόν να σφάλμα τύπου διαρροής μνήμης (memory leak).
+
+
