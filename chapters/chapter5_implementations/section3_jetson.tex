@@ -74,21 +74,27 @@ NEON\footnote{url{https://www.arm.com/products/processors/technologies/neon.php}
 Κάθε μία από τις πιο πάνω ρουτίνες εκτελέστηκε 1000 φορές και λήφθηκε
 η μέση τιμή του χρόνου εκτέλεσης.
 Τα συγκριτικά αποτελέσματα των τριών βιβλιοθηκών BLAS
-παρουσιάζονται στον πιο κάτω πίνακα,
+παρουσιάζονται στον \autoref{tab:blas_lib_results},
 
-\begin{tabular}{ | l | l | l | l | }
-  \hline
-  \rowcolor{Gray}
-   & libblas+liblapack+libumfpack & ATLAS & OpenBLAS \\
-  \hline
-  $\vec{x} \odot \vec{x}$ & 11.21 us & 10.99 us & 11.49 us \\
-  $X \odot X$ & 2602.7 ms & 209.2 ms & 148.8 ms \\
-  $X^{-1} $ & 3420.279 ms & 570.630 ms & 296.545 ms \\
-  $|X|$ & 972.815 ms & 283.391 ms & 101.563 ms \\
-  $SVD(X)$ & 94.985 s & 51.635 s & 11.200 s \\
-  $Eigen(X)$ & 98.585 s & 38.157 s & 28.708 s \\
-  \hline
-\end{tabular}
+\begin{table}[H]
+  \begin{center}
+    \caption{Χρόνοι εκτέλεσης βασικών πράξεων γραμμικής άλγευρας χρησιμοποιώντας τις βιβλιοθήκες ATLAS και OpenBLAS}
+    \label{tab:blas_lib_results}
+    \begin{tabular}{ | l | c | c | c | }
+      \hline
+      \rowcolor{Gray}
+       & libblas+liblapack+libumfpack & ATLAS & OpenBLAS \\
+      \hline
+      $\vec{x} \odot \vec{x}$ & 11.21 us & 10.99 us & 11.49 us \\
+      $X \odot X$ & 2602.7 ms & 209.2 ms & 148.8 ms \\
+      $X^{-1} $ & 3420.279 ms & 570.630 ms & 296.545 ms \\
+      $|X|$ & 972.815 ms & 283.391 ms & 101.563 ms \\
+      $SVD(X)$ & 94.985 s & 51.635 s & 11.200 s \\
+      $Eigen(X)$ & 98.585 s & 38.157 s & 28.708 s \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 όπου και φαίνεται ότι οι καλύτεροι χρόνοι λήφθηκαν με χρήση της βιβλιοθήκης OpenBLAS.
 Στην συνέχεια μεταγλωττίστηκαν από πηγαίο
 κώδικα οι βιβλιοθήκες numpy, scipy και Theano, με χρήση της βιβλιοθήκης OpenBLAS (shared library link).
