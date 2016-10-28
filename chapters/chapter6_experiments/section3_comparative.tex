@@ -1,0 +1,48 @@
+\section{Συγκριτικά Αποτελέσματα}
+\label{sec:experiments_comparative}
+
+\begin{table}[H]
+  \begin{center}
+    \caption{Μετρήσεις πειραμάτων για το δίκτυο AlexNet στο Jetson TK1}
+    \label{tab:results_comparative}
+    \small
+    \begin{tabular}[center]{ | c | c | c | c | c | }
+      \hline
+      \rowcolor{Gray}
+      CNN & \# νημάτων & Μονάδα & cnmem & Χρόνος εκτέλεσης (sec) \\
+      \hline
+      \multirow{10}{*}{AlexNet} & \multirow{2}{*}{1}    & i7-6700 & N/A & 0.117 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 0.62 \\ \cline{2-5}
+                                & \multirow{2}{*}{2}    & i7-6700 & N/A & 0.095 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 0.4845 \\ \cline{2-5}
+                                & \multirow{2}{*}{4}    & i7-6700 & N/A & 0.095 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 0.4634 \\ \cline{2-5}
+                                & \multirow{2}{*}{8}    & i7-6700 & N/A & 0.127 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 0.4646 \\ \cline{2-5}
+                                & \multirow{2}{*}{N/A}  & \multirow{2}{*}{GK20a GPU} & 0 & 0.1049 \\ \cline{4-5}
+                                &                       &                            & 700MB & 0.1 \\ \hline
+      \multirow{10}{*}{VGG16}   & \multirow{2}{*}{1}    & i7-6700 & N/A & 0.7709 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 9.431 \\ \cline{2-5}
+                                & \multirow{2}{*}{2}    & i7-6700 & N/A & 0.5577 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 5.4476 \\ \cline{2-5}
+                                & \multirow{2}{*}{4}    & i7-6700 & N/A & 0.4734 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 3.6224 \\ \cline{2-5}
+                                & \multirow{2}{*}{8}    & i7-6700 & N/A & 0.6555 \\ \cline{3-5}
+                                &                       & ARM Cortex A15 & N/A & 3.6308 \\ \cline{2-5}
+                                & \multirow{2}{*}{N/A}  & \multirow{2}{*}{GK20a GPU} & 0 & 0.6983 \\ \cline{4-5}
+                                &                       &                            & 720MB & 0.5761 \\ \hline
+      \multirow{10}{*}{Tiny-YOLO} & \multirow{2}{*}{1}    & i7-6700 & N/A & 0.18709 \\ \cline{3-5}
+                                  &                       & ARM Cortex A15 & N/A & 1.5902 \\ \cline{2-5}
+                                  & \multirow{2}{*}{2}    & i7-6700 & N/A & 0.1609 \\ \cline{3-5}
+                                  &                       & ARM Cortex A15 & N/A & 1.0276 \\ \cline{2-5}
+                                  & \multirow{2}{*}{4}    & i7-6700 & N/A & 0.1516 \\ \cline{3-5}
+                                  &                       & ARM Cortex A15 & N/A & 0.8137 \\ \cline{2-5}
+                                  & \multirow{2}{*}{8}    & i7-6700 & N/A & 0.2309 \\ \cline{3-5}
+                                  &                       & ARM Cortex A15 & N/A & 0.8126 \\ \cline{2-5}
+                                  & \multirow{2}{*}{N/A}  & \multirow{2}{*}{GK20a GPU} & 0 & 0.5543 \\ \cline{4-5}
+                                  &                       &                            & 400MB & 0.3872 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
