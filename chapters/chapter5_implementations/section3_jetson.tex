@@ -1,7 +1,7 @@
 \section{Βελτιστοποίηση των εργαλείων λογισμικού στο Jetson TK1}
 \label{sec:implementations_jetson}
 
-Στο \autoref{sec:jetson_tk1} είχε αναφερθεί ότι η πλατφόρμα διαθέτει
+Στο \autoref{sec:jetson_tk1} αναφέρθηκε ότι η πλατφόρμα διαθέτει
 λειτουργικό \emph{Linux4Tegra} το οποίο είναι ουσιαστικά διανομή Ubuntu 14.04
 με εγκατεστημένους τους απαραίτητους drivers για το συγκεκριμένο σύστημα.
 
@@ -27,7 +27,7 @@
 \end{itemize}
 
 Στην συνέχεια εγκαταστάθηκαν οι βιβλιοθήκες CUDA και cuDNN για να είναι δυνατή
-η εκμετάλλευση της υπολογιστικής ισχύς της μονάδας GPU. (ο οδηγός εγκατάστασης λήφθηκε από τον ιστοχώρο: \url{http://elinux.org/Jetson_TK1}).
+η εκμετάλλευση της υπολογιστικής ισχύς της μονάδας GPU \footnote{Οδηγός εγκατάστασης εργαλείων CUDA και cuDNN: \url{http://elinux.org/Jetson_TK1}}.
 
 Ένα μεγάλο μέρος της συνεισφοράς της παρούσας διπλωματική εργασίας
 ήταν να γίνουν βελτιστοποιήσεις σε επίπεδο λογισμικού των εργαλείων που χρησιμοποιήθηκαν
@@ -95,7 +95,7 @@ NEON\footnote{url{https://www.arm.com/products/processors/technologies/neon.php}
     \end{tabular}
   \end{center}
 \end{table}
-όπου και φαίνεται ότι οι καλύτεροι χρόνοι λήφθηκαν με χρήση της βιβλιοθήκης OpenBLAS.
+όπου φαίνεται ότι οι καλύτεροι χρόνοι λήφθηκαν με χρήση της βιβλιοθήκης OpenBLAS.
 Στην συνέχεια μεταγλωττίστηκαν από πηγαίο
 κώδικα οι βιβλιοθήκες numpy, scipy και Theano, με χρήση της βιβλιοθήκης OpenBLAS (shared library link).
 
@@ -113,5 +113,4 @@ NEON\footnote{url{https://www.arm.com/products/processors/technologies/neon.php}
 ιστοχώρο: %
 
 \href{https://github.com/klpanagi/Thesis/tree/master/jetson-tk1}{https://github.com/klpanagi/Thesis/tree/master/jetson-tk1}
-
 
