@@ -75,10 +75,11 @@
   \label{fig:alexnet_from_paper}
 \end{figure}
 
-Το συγκεκριμένο νευρωνικό δίκτυο συνέλιξης αποτελείται από σύνολο οκτώ επιπέδων,
+Το δίκτυο AlexNet αποτελείται από σύνολο οκτώ επιπέδων,
 ή καλύτερα ομάδες επιπέδων – πέντε (5) επίπεδα συνέλιξης και τρία (3) πλήρως συνδεδεμένα. \\
 
 \begin{tabular}{ | l | l | l | l | }
+  \small
   \hline
   \rowcolor{Gray}
   Επίπεδο  & Τύπος & Αριθμός καναλιών & Διαστάσεις φίλτρων \\
@@ -108,16 +109,20 @@ ReLU. Επίσης χρησιμοποιεί και πολλά επίπεδα Zer
 Ο αντίστοιχος γράφος της υλοποίησης του μοντέλου
 φαίνεται φαίνεται στο \autoref{fig:alexnet_2}.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth]{./images/chapter5/alexnet_3.png}
+  \includegraphics[width=0.7\textwidth]{./images/chapter5/alexnet_part1.png}
+  %\caption[Πλήρης μορφή του δικτύου AlexNet της υλοποίησης]{Πλήρης μορφή του δικτύου AlexNet της υλοποίησης}
+  %\label{fig:alexnet_2}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./images/chapter5/alexnet_part2.png}
   \caption[Πλήρης μορφή του δικτύου AlexNet της υλοποίησης]{Πλήρης μορφή του δικτύου AlexNet της υλοποίησης}
   \label{fig:alexnet_2}
 \end{figure}
 
-Το AlexNet είναι ένα μοντέλο που υποστηρίζει μόνο αναγνώριση και όχι εντοπισμό
-των αντικειμένων, δηλαδή η μόνη πληροφορία που μας δίνει είναι η ύπαρξη των κλάσεων των
-αντικειμένων.
 
 %% --------------------------------------------------------------------------
 \subsection{VGG16}
@@ -259,9 +264,27 @@ Fast-RCNN \cite{DBLP:journals/corr/Girshick15}, Overfeat και DetectorNet.
 με παρόμοιο τρόπο λειτουργίας αλλά με πολύ λιγότερα επίπεδα συνέλιξης και άρα πιο
 γρήγορο στην εκτέλεση (Tiny/Fast YOLO). Το TinyYOLO αποτελείται από 9 επίπεδα
 συνέλιξης και 2 πλήρως συνδεδεμένα. Σε όλα τα επίπεδα εκτός του τελευταίου
-χρησιμοποιείται η συνάρτηση ενεργοποίησης LeakyReLU που παρουσιάστηκε στο \autoref{sec:theory_cnn}.
+χρησιμοποιείται η συνάρτηση ενεργοποίησης \emph{LeakyReLU} που παρουσιάστηκε στην \autoref{subsec:activations}.
 
 Η υλοποίηση του μοντέλου Tiny-YOLO είναι βασισμένη στην αντίστοιχη
-που έγινε από την συγκεκριμένη ερευνητική ομάδα \footnote{Βασική υλοποίηση του δικτύου YOLO: \url{http://pjreddie.com/darknet/}}
-\cite{darknet13}, η οποία είναι γραμμένη σε γλώσσα προγραμματισμού \emph{C}.
+που έγινε από την συγκεκριμένη ερευνητική ομάδα
+\cite{darknet13}, η οποία είναι γραμμένη σε γλώσσα προγραμματισμού \emph{C}\footnote{Βασική υλοποίηση του δικτύου YOLO: \url{http://pjreddie.com/darknet/}}.
+Ο γράφος της υλοποίησης του δικτύου Tiny-YOLO στο Keras φαίνεται στο \autoref{fig:yolotiny_graph}.
+
+\newpage
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{./images/chapter5/yolotiny_parts_1_2.png}
+  %\caption[Πλήρης μορφή του δικτύου Tiny-YOLO της υλοποίησης]{Πλήρης μορφή του δικτύου Tiny-YOLO της υλοποίησης}
+  %\label{fig:yolotiny_graph}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{./images/chapter5/yolotiny_parts_3_4.png}
+  \caption[Πλήρης μορφή του δικτύου Tiny-YOLO της υλοποίησης]{Πλήρης μορφή του δικτύου Tiny-YOLO της υλοποίησης}
+  \label{fig:yolotiny_graph}
+\end{figure}
+
 
