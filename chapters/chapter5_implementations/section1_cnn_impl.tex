@@ -76,25 +76,31 @@
 \end{figure}
 
 Το δίκτυο AlexNet αποτελείται από σύνολο οκτώ επιπέδων,
-ή καλύτερα ομάδες επιπέδων – πέντε (5) επίπεδα συνέλιξης και τρία (3) πλήρως συνδεδεμένα. \\
+ή καλύτερα ομάδες επιπέδων – πέντε (5) επίπεδα συνέλιξης και τρία (3) πλήρως
+συνδεδεμένα (βλ. \autoref{tab:alexnet_layers}).
 
-\begin{tabular}{ | l | l | l | l | }
-  \small
-  \hline
-  \rowcolor{Gray}
-  Επίπεδο  & Τύπος & Αριθμός καναλιών & Διαστάσεις φίλτρων \\
-  \hline
-  1 & Conv+Pool+Norm & 96 & $11 \times 11$ \\
-  2 & Conv+Pool+Norm & 256 & $5 \times 5$ \\
-  3 & Conv & 384 & $3 \times 3$ \\
-  4 & Conv & 384 & $3 \times 3$ \\
-  5 & Conv+Pool & 256 & $3 \times 3$ \\
-  6 & Full & 4096 & Ν/A \\
-  7 & Full & 4096 & N/A \\
-  8 & Full & 1000 & N/A \\
-  \hline
-\end{tabular}
-\\
+\begin{table}[H]
+  \begin{center}
+    \caption{Χαρακτηριστικά και παράμετροι των επιπέδων του δικτύου AlexNet}
+    \label{tab:alexnet_layers}
+    \begin{tabular}{ | l | l | l | l | }
+      \hline
+      \rowcolor{Gray}
+      Επίπεδο  & Τύπος & Αριθμός καναλιών & Διαστάσεις φίλτρων \\
+      \hline
+      1 & Conv+Pool+Norm & 96 & $11 \times 11$ \\
+      2 & Conv+Pool+Norm & 256 & $5 \times 5$ \\
+      3 & Conv & 384 & $3 \times 3$ \\
+      4 & Conv & 384 & $3 \times 3$ \\
+      5 & Conv+Pool & 256 & $3 \times 3$ \\
+      6 & Full & 4096 & Ν/A \\
+      7 & Full & 4096 & N/A \\
+      8 & Full & 1000 & N/A \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
 
 Η συνάρτηση υποδειγματοληψίας που χρησιμοποιεί το μοντέλο είναι η συνάρτηση
 MaxPooling2D με βήμα μετατόπισης ίσο με την μονάδα και στους 2 άξονες ($1 \times 1$).
@@ -109,16 +115,18 @@ ReLU. Επίσης χρησιμοποιεί και πολλά επίπεδα Zer
 Ο αντίστοιχος γράφος της υλοποίησης του μοντέλου
 φαίνεται φαίνεται στο \autoref{fig:alexnet_2}.
 
+\newpage
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{./images/chapter5/alexnet_part1.png}
+  \includegraphics[width=0.8\textwidth]{./images/chapter5/alexnet_part1.png}
   %\caption[Πλήρης μορφή του δικτύου AlexNet της υλοποίησης]{Πλήρης μορφή του δικτύου AlexNet της υλοποίησης}
   %\label{fig:alexnet_2}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{./images/chapter5/alexnet_part2.png}
+  \includegraphics[width=0.9\textwidth]{./images/chapter5/alexnet_part2.png}
   \caption[Πλήρης μορφή του δικτύου AlexNet της υλοποίησης]{Πλήρης μορφή του δικτύου AlexNet της υλοποίησης}
   \label{fig:alexnet_2}
 \end{figure}
@@ -138,33 +146,37 @@ ReLU. Επίσης χρησιμοποιεί και πολλά επίπεδα Zer
 \end{figure}
 
 Αποτελείται από 16 επίπεδα – 13 επίπεδα συνέλιξης και 3 πλήρως συνδεδεμένα (\autoref{fig:vgg16_from_paper}) – των
-οποίων τα χαρακτηριστικά δίνονται στον πιο κάτω πίνακα:
-\\
+οποίων τα χαρακτηριστικά δίνονται στον \autoref{tab:vgg16_layers}.
 
-\begin{tabular}{ | l | l | l | l | }
-  \hline
-  \rowcolor{Gray}
-  Επίπεδο  & Τύπος & Αριθμός καναλιών & Διαστάσεις φίλτρων \\
-  \hline
-  1 & Conv & 64 & $3 \times 3$ \\
-  2 & Conv+Pool & 64 & $3 \times 3$ \\
-  3 & Conv & 128 & $3 \times 3$ \\
-  4 & Conv+Pool & 128 & $3 \times 3$ \\
-  5 & Conv & 256 & $3 \times 3$ \\
-  6 & Conv & 256 & $3 \times 3$ \\
-  7 & Conv+Pool & 256 & $3 \times 3$ \\
-  8 & Conv & 512 & $3 \times 3$ \\
-  9 & Conv & 512 & $3 \times 3$ \\
-  10 & Conv+Pool & 512 & $3 \times 3$ \\
-  11 & Conv & 512 & $3 \times 3$ \\
-  12 & Conv & 512 & $3 \times 3$ \\
-  13 & Conv+Pool & 512 & $3 \times 3$ \\
-  14 & FullyConnected & 4096 & Ν/A \\
-  15 & FullyConnected & 4096 & N/A \\
-  16 & FullyConnected & 1000 & N/A \\
-  \hline
-\end{tabular}
-\\
+\begin{table}[H]
+  \begin{center}
+    \caption{Χαρακτηριστικά και παράμετροι των επιπέδων του δικτύου VGG16}
+    \label{tab:vgg16_layers}
+    \begin{tabular}{ | l | c | c | c | }
+      \hline
+      \rowcolor{Gray}
+      Επίπεδο  & Τύπος & Αριθμός καναλιών & Διαστάσεις φίλτρων \\
+      \hline
+      1 & Conv & 64 & $3 \times 3$ \\
+      2 & Conv+Pool & 64 & $3 \times 3$ \\
+      3 & Conv & 128 & $3 \times 3$ \\
+      4 & Conv+Pool & 128 & $3 \times 3$ \\
+      5 & Conv & 256 & $3 \times 3$ \\
+      6 & Conv & 256 & $3 \times 3$ \\
+      7 & Conv+Pool & 256 & $3 \times 3$ \\
+      8 & Conv & 512 & $3 \times 3$ \\
+      9 & Conv & 512 & $3 \times 3$ \\
+      10 & Conv+Pool & 512 & $3 \times 3$ \\
+      11 & Conv & 512 & $3 \times 3$ \\
+      12 & Conv & 512 & $3 \times 3$ \\
+      13 & Conv+Pool & 512 & $3 \times 3$ \\
+      14 & FullyConnected & 4096 & Ν/A \\
+      15 & FullyConnected & 4096 & N/A \\
+      16 & FullyConnected & 1000 & N/A \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
 Παρομοίως με το δίκτυο AlexNet, σε όλα τα επίπεδα εκτός του τελευταίου χρησιμοποιήθηκε η συνάρτηση ενεργοποίησης
 ReLU, ενώ το τελευταίο επίπεδο παίζει τον ρόλο του ταξινομητή και συγκεκριμένα

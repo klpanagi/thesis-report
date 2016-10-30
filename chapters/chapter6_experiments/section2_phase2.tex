@@ -6,6 +6,19 @@
 Το πρόβλημα αυτό το αντιμετωπίστηκε προσθέτοντας 1GB μνήμη
 \emph{Swap}\footnote{Δημιουργία αρχείου μνήμης swap: \url{http://www.jetsonhacks.com/2014/10/04/creating-swapfile-ubuntu-nvidia-jetson-tk1/}}.
 
+Ο λόγος της απόδοσης ανά μονάδα ισχύος (performance per watt) υπολογίστηκε
+με βάση τον αριθμό τον εικόνων που μπορεί να επεξεργαστεί το εκάστοτε
+νευρωνικό δίκτυο ανά δευτερόλεπτο (frames per second).
+
+Οι εκδόσεις των εργαλείων λογισμικού που χρησιμοποιήθηκαν
+κατά την διάρκεια των πειραμάτων για τον επεξεργαστή Intel-i7-6700 είναι:
+\begin{itemize}
+  \item{Keras: v1.1.0}
+  \item{Theano: v0.9.0-dev3}
+  \item{numpy: v1.11.0}
+  \item{scipy: v0.19.0-dev0}
+\end{itemize}
+
 %%----------------------------------------------------------------------------
 
 \subsection{AlexNet}
@@ -36,17 +49,17 @@ GPU (με και χωρίς εκ των προτέρων δέσμευση μνή
     \caption{Μετρήσεις πειραμάτων για το δίκτυο AlexNet στο Jetson TK1}
     \label{tab:alexnet_jetson}
     \small
-    \begin{tabular}[center]{ | c | c | c | c | c | }
+    \begin{tabular}[center]{ | c | c | c | c | c | c | }
       \hline
       \rowcolor{Gray}
-      Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
+      Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) & Perf/Watt \\
       \hline
-      CPU & 1 & N/A & 0.62 & 6.318\\
-      CPU & 2 & N/A & 0.4845 & 8.019\\
-      CPU & 4 & N/A & 0.4634 & 10.692\\
-      CPU & 8 & N/A & 0.4646 & 10.692\\
-      GPU & N/A & None & 0.1049 & 8.5\\
-      GPU & N/A & 700MB & 0.1 & 8.5\\
+      CPU & 1 & N/A & 0.62 & 6.318 & 0.254\\
+      CPU & 2 & N/A & 0.4845 & 8.019 & 0.2574\\
+      CPU & 4 & N/A & 0.4634 & 10.692 & 0.202\\
+      CPU & 8 & N/A & 0.4646 & 10.692 & 0.2013\\
+      GPU & N/A & None & 0.1049 & 8.5 & 1.1215\\
+      GPU & N/A & 700MB & 0.1 & 8.5 & 1.1764\\
       \hline
     \end{tabular}
   \end{center}
@@ -67,7 +80,7 @@ GPU (με και χωρίς εκ των προτέρων δέσμευση μνή
     \end{itemize}
 \end{itemize}
 
-Στον \autoref{tab:vgg16_jetson} παρουσιάζονται τα συγκριτικά αποτελέσματα της
+Στον παρακάτω \autoref{tab:vgg16_jetson} βρίσκονται τα συγκριτικά αποτελέσματα της
 εκτέλεσης τόσο στην μονάδα CPU (με μεταβλητό αριθμό νημάτων), όσο και στην
 GPU (με και χωρίς εκ των προτέρων δέσμευση μνήμης).
 
@@ -76,37 +89,38 @@ GPU (με και χωρίς εκ των προτέρων δέσμευση μνή
     \caption{Μετρήσεις πειραμάτων για το δίκτυο VGG16 στο Jetson TK1}
     \label{tab:vgg16_jetson}
     \small
-    \begin{tabular}[center]{ | c | c | c | c | c | }
+    \begin{tabular}[center]{ | c | c | c | c | c | c | }
       \hline
       \rowcolor{Gray}
-      Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
+      Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) & Perf/Watt \\
       \hline
-      CPU & 1 & N/A & 9.431 & 6.318 \\
-      CPU & 2 & N/A & 5.4476 &  8.748\\
-      CPU & 4 & N/A & 3.6224 & 13.122\\
-      CPU & 8 & N/A & 3.6308 & 13.122\\
-      GPU & N/A & None & 0.6983 & 11.907\\
-      GPU & N/A & 720MB & 0.5761 & 11.907\\
+      CPU & 1 & N/A & 9.431 & 6.318 & 0.0167\\
+      CPU & 2 & N/A & 5.4476 &  8.748 & 0.021\\
+      CPU & 4 & N/A & 3.6224 & 13.122 & 0.021\\
+      CPU & 8 & N/A & 3.6308 & 13.122 & 0.021\\
+      GPU & N/A & None & 0.6983 & 11.907 & 0.1207\\
+      GPU & N/A & 720MB & 0.5761 & 11.907 & 0.1457\\
       \hline
     \end{tabular}
   \end{center}
 \end{table}
+
+Στο \autoref{fig:vgg16_results_jetson} που ακολουθεί, παρουσιάζεται το διάγραμμα
+των χρόνων εκτέλεσης στην μονάδα CPU με χρήση τεσσάρων νημάτων και στην μονάδα
+GPU με εκ των προτέρων δέσμευση 720MB μνήμης.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./images/chapter6/benchmark_vgg16_jetson.png}
+  \caption[Χρόνoι εκτέλεσης για το δίκτυο VGG16 στο Jetson TK1]{Χρόνoι εκτέλεσης για το δίκτυο VGG16 στο Jetson TK1}
+  \label{fig:vgg16_results_jetson}
+\end{figure}
 
 Παρατηρούμε ότι η εκτέλεση στην μονάδα GPU είναι 5.187 φορές πιο
 γρήγορη (χωρίς εκ των προτέρων δέσμευση μνήμης).
 Επίσης, με εκ των προτέρων δέσμευση μνήμης για την μονάδα GPU, ο χρόνος εκτέλεσης μειώνεται ακόμη
 περισσότερο (περίπου 120ms).
 
-Στο \autoref{fig:vgg16_results_jetson} παρουσιάζεται το διάγραμμα
-των χρόνων εκτέλεσης στην μονάδα CPU με χρήση τεσσάρων νημάτων και στην μονάδα
-GPU με εκ των προτέρων δέσμευση 720MB μνήμης.
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.8\textwidth]{./images/chapter6/benchmark_vgg16_jetson.png}
-  \caption[Χρόνoι εκτέλεσης για το δίκτυο VGG16 στο Jetson TK1]{Χρόνoι εκτέλεσης για το δίκτυο VGG16 στο Jetson TK1}
-  \label{fig:vgg16_results_jetson}
-\end{figure}
 
 
 %%----------------------------------------------------------------------------
@@ -123,28 +137,28 @@ GPU με εκ των προτέρων δέσμευση 720MB μνήμης.
     \end{itemize}
 \end{itemize}
 
-\begin{table}[!ht]
+\begin{table}[H]
   \begin{center}
     \caption{Μετρήσεις πειραμάτων για το δίκτυο Tiny-YOLO στο Jetson TK1}
     \label{tab:yolo_jetson}
     \small
-    \begin{tabular}[center]{ | c | c | c | c | c | }
+    \begin{tabular}[center]{ | c | c | c | c | c | c | }
       \hline
       \rowcolor{Gray}
-      Υπολ. Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) \\
+      Μονάδα & \# νημάτων & cnmem & Χρόνος εκτέλεσης (sec) & Κατ. Ισχύος (Watts) & Perf/Watt \\
       \hline
-      CPU & 1 & N/A & 1.5902 & 6.318\\
-      CPU & 2 & N/A & 1.0276 & 8.504\\
-      CPU & 4 & N/A & 0.8137 & 11.9\\
-      CPU & 8 & N/A & 0.8126 & 11.9\\
-      GPU & N/A & None & 0.5543 & 8\\
-      GPU & N/A & 400MB & 0.3872 & 8\\
+      CPU & 1 & N/A & 1.5902 & 6.318 & 0.1\\
+      CPU & 2 & N/A & 1.0276 & 8.504 & 0.1144\\
+      CPU & 4 & N/A & 0.8137 & 11.9 & 0.103\\
+      CPU & 8 & N/A & 0.8126 & 11.9 & 0.1034\\
+      GPU & N/A & None & 0.5543 & 8 & 0.2255\\
+      GPU & N/A & 400MB & 0.3872 & 8 & 0.323\\
       \hline
     \end{tabular}
   \end{center}
 \end{table}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{./images/chapter6/benchmark_yolotiny_jetson.png}
   \caption[Χρόνoι εκτέλεσης για το δίκτυο Tiny-YOLO στο Jetson TK1]{Χρόνοι εκτέλεσης για το δίκτυο Tiny-YOLO στο Jetson TK1}
