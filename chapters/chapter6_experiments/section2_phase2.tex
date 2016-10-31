@@ -30,13 +30,6 @@
 διαθέτει το συγκεκριμένο ενσωματωμένο, για την ψύξη του SOC, καταναλώνει $0.85$Watts
 \footnote{Κατανάλωσης ισχύος του ανεμιστήρα που διαθέτει το Jetson TK1 \url{http://elinux.org/Jetson/Graphics_Performance\#Test_Methodology}}.
 
-Ο λόγος της απόδοσης ανά μονάδα ισχύος (performance per watt) υπολογίστηκε
-με βάση τον αριθμό τον εικόνων που μπορεί να επεξεργαστεί το εκάστοτε
-νευρωνικό δίκτυο ανά δευτερόλεπτο (frames per second):
-\begin{equation*}
-  performanve / watt = (1 / execution time) / (power consumption)
-\end{equation*}
-
 Η μεταγλώττιση των δικτύων AlexNet και VGG16 απαιτεί περισσότερη
 μνήμη από αυτή που διαθέτει το ενσωματωμένο σύστημα Jetson TK1 (1888MB).
 Το πρόβλημα αυτό το αντιμετωπίστηκε προσθέτοντας 1GB μνήμη
