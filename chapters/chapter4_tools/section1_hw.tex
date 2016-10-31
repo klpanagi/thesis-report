@@ -6,12 +6,12 @@
 \emph{Αναγνώριση και Εντοπισμό Αντικειμένων} σε συστήματα πραγματικού χρόνου,
 χρησιμοποιώντας Νευρωνικά Δίκτυα Συνέλιξης.
 
-Ο \emph{Tegra K1} είναι το πρώτο SOC της NVIDIA για φορητές συσκευές, με προηγμένη αρχιτεκτονική
+Ο \emph{Tegra K1} είναι το πρώτο SoC της NVIDIA για φορητές συσκευές, με προηγμένη αρχιτεκτονική
 και χαρακτηριστικά, καθώς και χαμηλή κατανάλωση ισχύος. Η τυπική κατανάλωση
 ισχύος αναφέρεται στα $0.6 - 3$ Watt ενώ η μέγιστη μπορεί να φθάσει μέχρι και τα
 $15$ Watt σε κατάσταση μέγιστης λειτουργίας των μονάδων CPU, GPU και ISP.
 
-Ένα επίσης ενδιαφέρον χαρακτηριστικό του συγκεκριμένου SOC είναι η τιμή του
+Ένα επίσης ενδιαφέρον χαρακτηριστικό του συγκεκριμένου SoC είναι η τιμή του
 λόγου της απόδοσης ανά μονάδα ισχύος κατανάλωσης (performance per watt),
 η οποία αναφέρεται στα $26SP Giga-flops/Watt$
 \footnote{Λόγος απόδοσης ανά μονάδα ισχύος: \url{http://tinyurl.com/lrl9glf}}
@@ -20,12 +20,12 @@ $15$ Watt σε κατάσταση μέγιστης λειτουργίας των
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.7\textwidth]{./images/chapter4/nvidia_tegrak1_block2.jpg}
-  \caption{Tegra K1 SOC}
+  \caption{Tegra K1 SoC}
   \label{fig:tegrak1soc}
 \end{figure}
 \noindent
 
-Όπως φαίνεται στο \autoref{fig:tegrak1soc}, τα βασικά τεχνικά χαρακτηριστικά του Tegra K1 SOC είναι:
+Όπως φαίνεται στο \autoref{fig:tegrak1soc}, τα βασικά τεχνικά χαρακτηριστικά του Tegra K1 SoC είναι:
 \begin{itemize}
   \item{CPU: Quad-core ARM Cortex-A15 CPU, 2.3Ghz}
   \item{GPU: GK20A Kepler-based GPU with 192 CUDA cores}
@@ -42,7 +42,7 @@ $15$ Watt σε κατάσταση μέγιστης λειτουργίας των
   \caption[Jetson TK1 development board]{Jetson TK1 development board}
   \label{fig:jetson_tk1}
 \end{figure}
-Το Jetson TK1 ενσωματώνει το Tegra K1 SOC (CPU+GPU+ISP)
+Το Jetson TK1 ενσωματώνει το Tegra K1 SoC (CPU+GPU+ISP)
 και είναι πλήρως συμβατό με διάφορες διανομές λειτουργικών συστημάτων Linux (Ubuntu, Debian, Arch, Fedora, openSUSE, Gentoo).
 Η πλήρης συμβατότητα και υποστήριξη του λειτουργικού συστήματος Linux ήταν βασικό κριτήριο
 στην επιλογή του συγκεκριμένου ενσωματωμένου συστήματος, αφού επιτρέπει την
@@ -71,7 +71,7 @@ $15$ Watt σε κατάσταση μέγιστης λειτουργίας των
 \end{itemize}
 
 Η κατανάλωση ισχύος της πλατφόρμας Jetson TK1 εξαρτάται τόσο από την χρήση
-του SOC, αλλά και από την χρήση των περιφερειακών διεπαφών που διαθέτει. Η
+του SoC, αλλά και από την χρήση των περιφερειακών διεπαφών που διαθέτει. Η
 ζήτηση (κατα απόλυτο μέγεθος) σε ηλεκτρική ισχύ για το παρόν ενσωματομένο σύστημα,
 σε περίπτωση πλήρους λειτουργίας του (περιλαμβανόμενης της χρήσης του διάυλου SATA \& PCIe )
 αναφέρεται περίπου στα 58 Watt \footnote{\url{http://elinux.org/Jetson/Jetson_TK1_Power\#Typical_power_draw_of_Jetson_TK1}}.
